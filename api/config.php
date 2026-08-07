@@ -1,8 +1,13 @@
 <?php
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'servicemaster');
+define('DB_HOST', getenv('MYSQLHOST') ?: 'localhost');
+define('DB_USER', getenv('MYSQLUSER') ?: 'root');
+define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
+define('DB_NAME', getenv('MYSQLDATABASE') ?: 'servicemaster');
+// Port is often needed by Railway, usually added to host if not default
+$port = getenv('MYSQLPORT') ?: '3306';
+if (getenv('MYSQLPORT')) {
+    define('DB_PORT', $port); // some apps might use it if defined
+}
 
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
@@ -27,13 +32,14 @@ if (session_status() === PHP_SESSION_NONE) {
 
 function getDB() {
     try {
-        $dbConnection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $port = defined('DB_PORT') ? DB_PORT : 3306;
+        $dbConnection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, $port);
     } catch (Throwable $e) {
         try {
-            $dbConnection = new mysqli('127.0.0.1', DB_USER, DB_PASS, DB_NAME);
+            $dbConnection = new mysqli('127.0.0.1', DB_USER, DB_PASS, DB_NAME, 3306);
         } catch (Throwable $e2) {
             try {
-                $dbConnection = new mysqli('localhost', DB_USER, DB_PASS, DB_NAME, null, '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock');
+                $dbConnection = new mysqli('localhost', DB_USER, DB_PASS, DB_NAME, 3306, '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock');
             } catch (Throwable $e3) {
                 http_response_code(500);
                 header('Content-Type: application/json');
