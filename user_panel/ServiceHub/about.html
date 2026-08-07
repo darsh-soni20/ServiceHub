@@ -1,0 +1,670 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> ServiceHub HTML-5 Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/gijgo.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/animated-headline.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/nice-select.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .header-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+            will-change: transform, opacity;
+        }
+
+        .header-area.header-hidden {
+            transform: translateY(-110%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body {
+            padding-top: 0;
+        }
+
+        .main-header.header-sticky {
+            width: 100%;
+        }
+
+        /* ===== Pricing Section - Image Layout Fix ===== */
+        .best-pricing {
+            background: #fffcf9;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .pricing-image-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .pricing-card-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid #ffffff;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            background: #000;
+        }
+
+        .pricing-card-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .pricing-card-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .pricing-card-badge {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(18, 22, 32, 0.85);
+            backdrop-filter: blur(10px);
+            color: #d19f68;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(209, 159, 104, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hide old template absolute positioning that caused overlapping */
+        .best-pricing .pricing-img {
+            display: none !important;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!--? Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt="" style="height: 130px; width: 300px;"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li class="active"><a href="about.html">About</a></li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                                                <div class="header-right-btn f-right d-none d-lg-block ml-30 d-flex align-items-center">
+                                    <a href="/Project/login.php" class="btn header-btn auth-login">Login / Sign Up</a>
+                                    
+                                    <div class="user-profile-wrapper auth-user" style="display:none; position:relative; cursor:pointer; margin-left: 15px;">
+                                        <div class="user-profile-trigger d-flex align-items-center" onclick="document.getElementById('userDropdown').classList.toggle('show-dropdown')" style="gap: 12px; padding: 8px 18px 8px 8px; background: rgba(209,159,104,0.05); border: 1px solid rgba(209,159,104,0.2); border-radius: 40px; transition: all 0.3s;">
+                                            <div class="profile-avatar" style="width: 38px; height: 38px; background: #d19f68; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:18px;" id="profileAvatar">U</div>
+                                            <div class="profile-info text-left">
+                                                <span class="profile-name" id="profileName" style="display:block; color:#fff; font-size:14px; font-weight:600; line-height:1.2;">User</span>
+                                                <span class="profile-role" style="display:block; color:#d19f68; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Customer</span>
+                                            </div>
+                                            <i class="fas fa-chevron-down" style="color:#a5b1c2; font-size:12px; margin-left:5px;"></i>
+                                        </div>
+                                        
+                                        <div id="userDropdown" class="profile-dropdown-menu" style="position:absolute; top:calc(100% + 15px); right:0; width:240px; background:#121620; border:1px solid rgba(209,159,104,0.2); border-radius:12px; box-shadow:0 15px 35px rgba(0,0,0,0.6); padding:10px 0; opacity:0; visibility:hidden; transform:translateY(15px); transition:all 0.3s; z-index:999;">
+                                            <div class="dropdown-header" style="padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.05); margin-bottom:5px;">
+                                                <span style="display:block; color:rgba(255,255,255,0.4); font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Signed in as</span>
+                                                <span id="profileEmail" style="display:block; color:#fff; font-size:13px; word-break:break-all; font-weight:500;">user@email.com</span>
+                                            </div>
+                                            <a href="my-profile.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-user-circle" style="color:#d19f68; font-size:16px;"></i> My Profile</a>
+                                            <a href="my-bookings.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-calendar-check" style="color:#d19f68; font-size:16px;"></i> My Bookings</a>
+                                            <div style="height:1px; background:rgba(255,255,255,0.05); margin:5px 0;"></div>
+                                            <a href="#" class="dropdown-item text-danger" onclick="fetch('/Project/api/auth.php?action=logout&role=user').then(()=>window.location.href='index.html')" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#ff4a4a; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-sign-out-alt" style="font-size:16px;"></i> Log Out</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <style>
+                                        .show-dropdown { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; }
+                                        .dropdown-item:hover { background: rgba(209,159,104,0.1); color:#d19f68 !important; }
+                                        .dropdown-item.text-danger:hover { background: rgba(255,74,74,0.1); color:#ff4a4a !important; }
+                                        .user-profile-trigger:hover { background: rgba(209,159,104,0.15) !important; border-color:rgba(209,159,104,0.4) !important; }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>   
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!--? Hero Start -->
+        <div class="slider-area2">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>About US</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+        <!--? About Area Start -->
+        <section class="about-area section-padding30 position-relative">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-11">
+                        <!-- about-img -->
+                        <div class="about-img ">
+                            <img src="assets/img/gallery/about3.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about-caption">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle section-tittle3 mb-35">
+                                <span>About Our company</span>
+                                <h2>27 Years Of Experience!</h2>
+                            </div>
+                            <p class="mb-30 pera-bottom">We started with one clear mission - to make finding reliable home services easy. What began as a small idea to connect trusted electricians, plumbers, and handymen has grown into a platform that brings expert help right to your doorstep. Today, we continue to serve with speed, care, and commitment to every home.</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About Shape -->
+            <div class="about-shape">
+                <img src="assets/img/gallery/about-shape.png" alt="">
+            </div>
+        </section>
+        <!-- About-2 Area End -->
+        <!--? Services Area Start -->
+        <section class="service-area pb-170">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-7 col-lg-8 col-md-11 col-sm-11">
+                        <div class="section-tittle text-center mb-90">
+                            <span>Professional Services</span>
+                            <h2>Our Best services that  we offering to you</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section caption -->
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="services-caption text-center mb-30">
+                            <div class="service-icon">
+                                <img src="assets/img/elements/electrician.png" height=145px width=120px alt="">
+                            </div> 
+                            <div class="service-cap">
+                                <h4><a href="#">Electrician</a></h4>
+                                <p>From wiring to lighting, we bring power and safety to your home. Reliable service, every time you flip the switch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="services-caption active text-center mb-30">
+                            <div class="service-icon">
+                                <img src="assets/img/elements/wrench.png" height=145px width=120px alt="">
+                            </div> 
+                            <div class="service-cap">
+                                <h4><a href="#">Plumber</a></h4>
+                                <p>From leaks to blockages, we keep your water flowing. Reliable plumbing solutions, right when you need them.</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="services-caption text-center mb-30">
+                            <div class="service-icon">
+                                <img src="assets/img/elements/housekeeping.png" height=145px width=120px alt="">
+                            </div> 
+                            <div class="service-cap">
+                                <h4><a href="#">House Cleaning</a></h4>
+                                <p>From dust to shine, we make your home sparkle. Professional cleaning that brings comfort back to every corner.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Area End -->
+        <!--? Team Start -->
+        <div class="team-area pb-180">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-8 col-md-11 col-sm-11">
+                        <div class="section-tittle text-center mb-100">
+                            <span>Professional Teams</span>
+                            <h2>Our award winner Professionals for you</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- single Tem -->
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                        <div class="single-team mb-80 text-center">
+                            <div class="team-img">
+                                <img src="assets/img/gallery/electrician2.png" height=380px width=1000px alt="">
+                            </div>
+                            <div class="team-caption">
+                                <span>Master Barber</span>
+                                <h3><a href="#">Guy C. Pulido bks</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                        <div class="single-team mb-80 text-center">
+                            <div class="team-img">
+                                <img src="assets/img/gallery/plumber2.png" height=380px width=1000px alt="">
+                            </div>
+                            <div class="team-caption">
+                                <span>Color Expart</span>
+                                <h3><a href="#">Steve L. Nolan</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                        <div class="single-team mb-80 text-center">
+                            <div class="team-img">
+                                <img src="assets/img/gallery/house servicing2.png" height=380px width=1000px alt="">
+                            </div>
+                            <div class="team-caption">
+                                <span>Master Barber</span>
+                                <h3><a href="#">Ella P. Mathis</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+        <!-- Best Pricing Area Start -->
+        <div class="best-pricing position-relative">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Left Side: Neatly Arranged Images -->
+                    <div class="col-xl-6 col-lg-6 mb-50 mb-lg-0">
+                        <div class="pricing-image-wrapper">
+                            <div class="pricing-card-item">
+                                <img src="assets/img/gallery/elec.png" alt="Electrical Wire Repair & Maintenance">
+                                <div class="pricing-card-badge">
+                                    <i class="fas fa-bolt"></i> Electrical Repairs
+                                </div>
+                            </div>
+                            <div class="pricing-card-item">
+                                <img src="assets/img/gallery/plumb1.png" alt="Plumbing Repairs & Services">
+                                <div class="pricing-card-badge">
+                                    <i class="fas fa-wrench"></i> Plumbing Services
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Side: Clean Pricing List -->
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="section-tittle mb-50 pl-lg-4">
+                            <span>Our Best Pricing</span>
+                            <h2>We provide best price<br> in the city!</h2>
+                        </div>
+                        <!-- Pricing  -->
+                        <div class="row pl-lg-4">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="pricing-list">
+                                    <ul>
+                                        <li>Switch/Socket Repair . . . . <span> Starts at ₹59</span></li>
+                                        <li>Fan Repair Or Installation . . . . <span> Starts at ₹99</span></li>
+                                        <li>Light Repair Or Installation . . . <span> Starts at ₹99</span></li>
+                                        <li>Internal Wiring (Per 5m) . . . . <span> Starts at ₹129</span></li>
+                                        <li>External Wiring (Per 5m) . . . . <span> Starts at ₹129</span></li>
+                                        <li>Appliance Installation . . . . <span> Starts at ₹199</span></li>
+                                        <li>Appliance Repairing . . . . <span> Starts at ₹199</span></li>
+                                        <li>AC Servicing . . . . <span>Starts at ₹199</span></li>
+                                        <li>Electrician Consultation . . . . <span>Starts at ₹49</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="pricing-list">
+                                    <ul>
+                                        <li>Tap Installation Or Repairing . . . <span>Starts at ₹79</span></li>
+                                        <li>Shower Installation Or Repairing . . . <span>Starts at ₹119</span></li>
+                                        <li>Bath Accessories Installation . . . <span>Starts at ₹79</span></li>
+                                        <li>Basin Installation Or Repairing . . . <span>Starts at ₹249</span></li>
+                                        <li>Toilet Installation Or Repairing . . . <span>Starts at ₹249</span></li>
+                                        <li>Leakage Or Blockage . . . <span>Starts at ₹99</span></li>
+                                        <li>Plumber Consultation . . . <span>Starts at ₹49</span></li>
+                                        <li>Room Cleaning . . . . <span>Starts at ₹249</span></li>
+                                        <li>Full Apartment Cleaning . . . . <span>Starts at ₹3549</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Best Pricing Area End -->
+        <!--? Gallery Area Start -->
+        <div class="gallery-area section-padding30">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7 col-md-9 col-sm-10">
+                        <div class="section-tittle text-center mb-100">
+                            <span>our image gellary</span>
+                            <h2>A Glimpse of Our Home Services</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img " style="background-image: url(assets/img/gallery/img1.png);"></div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6 col-sm-6">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img " style="background-image: url(assets/img/gallery/img2.png);"></div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6 col-sm-6">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img " style="background-image: url(assets/img/gallery/img4.png);"></div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="box snake mb-30">
+                            <div class="gallery-img " style="background-image: url(assets/img/gallery/img3.png);"></div>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Gallery Area End -->
+
+
+    </main>
+    <footer>
+        <!--? Footer Start-->
+        <div class="footer-area section-bg" data-background="assets/img/gallery/footer_bg.png">
+            <div class="container">
+                <div class="footer-top footer-padding">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="assets/img/logo/images.png" style="height: 110px; width: 250px;" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Receive updates and latest news direct from Simply enter.</p>
+                                    </div>
+                                </div>
+                                <div class="footer-number">
+                                    <h4><span>+91 </span>8484848484</h4>
+                                    <p>servicehub84@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Location </h4>
+                                    <ul>
+                                        <li><a href="#">Advanced</a></li>
+                                        <li><a href="#"> Management</a></li>
+                                        <li><a href="#">Corporate</a></li>
+                                        <li><a href="#">Customer</a></li>
+                                        <li><a href="#">Information</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Explore</h4>
+                                    <ul>
+                                        <li><a href="#">Cookies</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Proparties</a></li>
+                                        <li><a href="#">Licenses</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Location</h4>
+                                    <div class="footer-pera">
+                                        <p class="info1">Subscribe now to get daily updates</p>
+                                    </div>
+                                </div>
+                                <!-- Form -->
+                                <div class="footer-form">
+                                    <div id="mc_embed_signup">
+                                        <form target="_blank" method="get" class="subscribe_form relative mail_part" >
+                                            <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'">
+                                            <div class="form-icon">
+                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">Send</button>
+                                            </div>
+                                            <div class="mt-10 info"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a target="_blank">ServiceHub</a>
+  </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script>
+        (function () {
+            const header = document.querySelector('.header-area');
+            if (!header) return;
+
+            let lastScrollY = window.scrollY || 0;
+            const threshold = 20;
+
+            const updateHeader = () => {
+                const currentScrollY = window.scrollY || 0;
+
+                if (currentScrollY > threshold) {
+                    header.classList.add('header-hidden');
+                } else {
+                    header.classList.remove('header-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+            };
+
+            let ticking = false;
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        updateHeader();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener('load', updateHeader);
+        })();
+    </script>
+
+
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Date Picker -->
+    <script src="./assets/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/jquery.sticky.js"></script>
+    
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="./assets/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/waypoints.min.js"></script>
+    <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/hover-direction-snake.min.js"></script>
+
+    <!-- contact js -->
+    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/mail-script.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    
+<script src="/Project/assets/js/auth-interceptor.js"></script>
+<script>
+    fetch('/Project/api/auth.php?action=check&role=user')
+        .then(res => res.json())
+        .then(data => {
+            if (data.logged_in) {
+                document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'block');
+                
+                if(data.user_name) {
+                    document.querySelectorAll('#profileName').forEach(el => el.textContent = data.user_name);
+                    document.querySelectorAll('#profileAvatar').forEach(el => el.textContent = data.user_name.charAt(0).toUpperCase());
+                }
+                if(data.user_email) {
+                    document.querySelectorAll('#profileEmail').forEach(el => el.textContent = data.user_email);
+                }
+            } else {
+                document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'none');
+            }
+        });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile-wrapper')) {
+            document.querySelectorAll('#userDropdown').forEach(el => el.classList.remove('show-dropdown'));
+        }
+    });
+</script>
+</body>
+</html>

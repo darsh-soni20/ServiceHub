@@ -1,0 +1,1100 @@
+<doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> ServiceHub - Services </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/gijgo.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/animated-headline.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/nice-select.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+    <script src="/Project/assets/js/auth-interceptor.js"></script>
+
+    <style>
+        .header-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+            will-change: transform, opacity;
+        }
+
+        .header-area.header-hidden {
+            transform: translateY(-110%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body {
+            padding-top: 0;
+        }
+
+        .main-header.header-sticky {
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!--? Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt="" style="height: 130px; width: 300px;"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li class="active"><a href="services.html">Services</a></li>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                                                <div class="header-right-btn f-right d-none d-lg-block ml-30 d-flex align-items-center">
+                                    <a href="/Project/login.php" class="btn header-btn auth-login">Login / Sign Up</a>
+                                    
+                                    <div class="user-profile-wrapper auth-user" style="display:none; position:relative; cursor:pointer; margin-left: 15px;">
+                                        <div class="user-profile-trigger d-flex align-items-center" onclick="document.getElementById('userDropdown').classList.toggle('show-dropdown')" style="gap: 12px; padding: 8px 18px 8px 8px; background: rgba(209,159,104,0.05); border: 1px solid rgba(209,159,104,0.2); border-radius: 40px; transition: all 0.3s;">
+                                            <div class="profile-avatar" style="width: 38px; height: 38px; background: #d19f68; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:18px;" id="profileAvatar">U</div>
+                                            <div class="profile-info text-left">
+                                                <span class="profile-name" id="profileName" style="display:block; color:#fff; font-size:14px; font-weight:600; line-height:1.2;">User</span>
+                                                <span class="profile-role" style="display:block; color:#d19f68; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Customer</span>
+                                            </div>
+                                            <i class="fas fa-chevron-down" style="color:#a5b1c2; font-size:12px; margin-left:5px;"></i>
+                                        </div>
+                                        
+                                        <div id="userDropdown" class="profile-dropdown-menu" style="position:absolute; top:calc(100% + 15px); right:0; width:240px; background:#121620; border:1px solid rgba(209,159,104,0.2); border-radius:12px; box-shadow:0 15px 35px rgba(0,0,0,0.6); padding:10px 0; opacity:0; visibility:hidden; transform:translateY(15px); transition:all 0.3s; z-index:999;">
+                                            <div class="dropdown-header" style="padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.05); margin-bottom:5px;">
+                                                <span style="display:block; color:rgba(255,255,255,0.4); font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Signed in as</span>
+                                                <span id="profileEmail" style="display:block; color:#fff; font-size:13px; word-break:break-all; font-weight:500;">user@email.com</span>
+                                            </div>
+                                            <a href="my-profile.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-user-circle" style="color:#d19f68; font-size:16px;"></i> My Profile</a>
+                                            <a href="my-bookings.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-calendar-check" style="color:#d19f68; font-size:16px;"></i> My Bookings</a>
+                                            <div style="height:1px; background:rgba(255,255,255,0.05); margin:5px 0;"></div>
+                                            <a href="#" class="dropdown-item text-danger" onclick="sessionStorage.clear(); localStorage.removeItem('auth_token'); fetch('/Project/api/auth.php?action=logout&role=user').then(()=>window.location.href='index.html')" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#ff4a4a; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-sign-out-alt" style="font-size:16px;"></i> Log Out</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <style>
+                                        .show-dropdown { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; }
+                                        .dropdown-item:hover { background: rgba(209,159,104,0.1); color:#d19f68 !important; }
+                                        .dropdown-item.text-danger:hover { background: rgba(255,74,74,0.1); color:#ff4a4a !important; }
+                                        .user-profile-trigger:hover { background: rgba(209,159,104,0.15) !important; border-color:rgba(209,159,104,0.4) !important; }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>   
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!--? Hero Start -->
+        <div class="slider-area2">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>Our Services</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+        <!--? Menu Area Start -->
+        <style>
+            .menu-section {
+                padding: 100px 0;
+                background-color: #f8f9fa;
+            }
+            .category-card {
+                background: #fff;
+                border-radius: 20px;
+                padding: 40px 30px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+                margin-bottom: 50px;
+                transition: all 0.4s ease;
+                border: 1px solid rgba(0,0,0,0.02);
+            }
+            .category-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            }
+            .category-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 2px dashed #f1f1f1;
+            }
+            .category-icon {
+                width: 70px;
+                height: 70px;
+                background: linear-gradient(135deg, #ff5722 0%, #ff9800 100%);
+                color: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 30px;
+                margin-right: 20px;
+                box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+            }
+            .category-title {
+                font-size: 32px;
+                font-weight: 800;
+                color: #1f2b7b;
+                margin: 0;
+            }
+            .menu-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .menu-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 18px 0;
+                border-bottom: 1px solid #f9f9f9;
+                transition: all 0.3s ease;
+            }
+            .menu-item:last-child {
+                border-bottom: none;
+            }
+            .menu-item:hover {
+                padding-left: 10px;
+                padding-right: 10px;
+                background-color: #fafbfe;
+                border-radius: 8px;
+            }
+            .menu-item-name {
+                font-size: 18px;
+                color: #333;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+            }
+            .menu-item-name i {
+                color: #ff5722;
+                margin-right: 12px;
+                font-size: 16px;
+                width: 20px;
+                text-align: center;
+            }
+            .menu-item-price {
+                background: #ebf5ff;
+                color: #1f2b7b;
+                padding: 6px 16px;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 16px;
+            }
+            .menu-badge {
+                background: #ff5722;
+                color: #fff;
+                font-size: 12px;
+                padding: 3px 8px;
+                border-radius: 10px;
+                margin-left: 10px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .menu-item-actions {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            .book-btn {
+                background: linear-gradient(135deg, #ff5722 0%, #ff9800 100%);
+                color: #fff;
+                padding: 6px 18px;
+                border-radius: 30px;
+                font-weight: 600;
+                font-size: 14px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border: none;
+                box-shadow: 0 4px 10px rgba(255, 87, 34, 0.2);
+            }
+            .book-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(255, 87, 34, 0.4);
+                color: #fff;
+            }
+
+            /* Booking Modal Overlay styling */
+            .booking-modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(11, 14, 20, 0.6);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease, visibility 0.4s ease;
+            }
+
+            .booking-modal-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Modal Container */
+            .booking-modal-container {
+                width: 90%;
+                max-width: 580px;
+                height: 85vh;
+                max-height: 750px;
+                background: #121620;
+                border-radius: 16px;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(209, 159, 104, 0.15);
+                position: relative;
+                transform: translateY(30px) scale(0.95);
+                transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                overflow: hidden;
+            }
+
+            .booking-modal-overlay.active .booking-modal-container {
+                transform: translateY(0) scale(1);
+            }
+
+            /* Modal Close Button */
+            .booking-modal-close-btn {
+                position: absolute;
+                top: 18px;
+                right: 20px;
+                width: 36px;
+                height: 36px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                color: #a5b1c2;
+                border-radius: 50%;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 10002;
+                border: none;
+            }
+
+            .booking-modal-close-btn:hover {
+                background: #d19f68;
+                color: #000;
+                border-color: #d19f68;
+                transform: rotate(90deg);
+            }
+
+            /* Iframe */
+            .booking-modal-iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+                background: transparent;
+            }
+
+            /* Prevent body scroll when modal is active */
+            body.modal-open {
+                overflow: hidden;
+            }
+        </style>
+        <div class="menu-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10">
+                        <div class="section-tittle text-center mb-40">
+                            <span>Service Categories</span>
+                            <h2>Explore Our Premium Services</h2>
+                            <p style="margin-top: 15px; font-size: 18px; color: #666;">Choose from our carefully curated list of expert services, guaranteed to provide you the best experience in the city.</p>
+                        </div>
+
+                        <!-- Dynamic Search Box & Keyword Pills -->
+                        <div style="background:#fff; border-radius:30px; padding:8px 15px 8px 25px; box-shadow:0 10px 30px rgba(0,0,0,0.08); border:1px solid rgba(209,159,104,0.4); display:flex; align-items:center; gap:15px; margin-bottom:15px;">
+                            <i class="fas fa-search" style="color:#d19f68; font-size:20px;"></i>
+                            <input type="text" id="serviceSearchInput" placeholder="Search services (e.g. Plumbing, Cleaning, AC, Electrical, Wiring, Tap, Leak...)" 
+                                   onkeyup="filterServicesBySearch()" 
+                                   style="flex:1; border:none; outline:none; font-size:15px; background:transparent; color:#333;">
+                            <button type="button" onclick="clearServiceSearch()" style="background:rgba(209,159,104,0.15); color:#d19f68; border-radius:20px; font-weight:600; padding:6px 16px; border:none; font-size:12px; cursor:pointer;">Clear</button>
+                        </div>
+                        
+                        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; font-size:13px; margin-bottom:50px;">
+                            <span style="font-weight:600; color:#555;"><i class="fas fa-tags" style="color:#d19f68; margin-right:4px;"></i> Quick Keywords:</span>
+                            <button type="button" class="search-tag-btn" onclick="setSearchKeyword('Home Cleaning')">Home Cleaning</button>
+                            <button type="button" class="search-tag-btn" onclick="setSearchKeyword('Plumbing')">Plumbing</button>
+                            <button type="button" class="search-tag-btn" onclick="setSearchKeyword('Electrical')">Electrical</button>
+                            <button type="button" class="search-tag-btn" onclick="setSearchKeyword('AC Repair')">AC Repair</button>
+                            <button type="button" class="search-tag-btn" onclick="setSearchKeyword('Painting')">Painting</button>
+                        </div>
+
+                        <style>
+                            .search-tag-btn {
+                                background: rgba(0,0,0,0.04);
+                                border: 1px solid rgba(0,0,0,0.08);
+                                color: #555;
+                                font-size: 12px;
+                                padding: 4px 12px;
+                                border-radius: 15px;
+                                font-weight: 500;
+                                cursor: pointer;
+                                transition: all 0.25s;
+                            }
+                            .search-tag-btn:hover {
+                                background: #d19f68;
+                                color: #fff;
+                                border-color: #d19f68;
+                            }
+                        </style>
+                    </div>
+                </div>
+
+                <div class="row" id="dynamicServicesContainer">
+                    <div class="col-12 text-center py-5">
+                        <i class="fas fa-spinner fa-spin fa-3x text-primary mb-3"></i>
+                        <p style="color:#666; font-size:16px;">Loading service categories and sub-services from database...</p>
+                    </div>
+                </div>
+      </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Area End -->
+    </main>
+    <footer>
+        <!--? Footer Start-->
+        <div class="footer-area section-bg" data-background="assets/img/gallery/footer_bg.png">
+            <div class="container">
+                <div class="footer-top footer-padding">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" style="height: 110px; width: 250px;" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Receive updates and latest news direct from Simply enter.</p>
+                                    </div>
+                                </div>
+                                <div class="footer-number">
+                                    <h4><span>+91 </span>8484848484</h4>
+                                    <p>servicehub84@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Location </h4>
+                                    <ul>
+                                        <li><a href="#">Advanced</a></li>
+                                        <li><a href="#"> Management</a></li>
+                                        <li><a href="#">Corporate</a></li>
+                                        <li><a href="#">Customer</a></li>
+                                        <li><a href="#">Information</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Explore</h4>
+                                    <ul>
+                                        <li><a href="#">Cookies</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Proparties</a></li>
+                                        <li><a href="#">Licenses</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Location</h4>
+                                    <div class="footer-pera">
+                                        <p class="info1">Subscribe now to get daily updates</p>
+                                    </div>
+                                </div>
+                                <!-- Form -->
+                                <div class="footer-form">
+                                    <div id="mc_embed_signup">
+                                        <form target="_blank"  method="get" class="subscribe_form relative mail_part">
+                                            <input type="email" name="EMAIL" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'">
+                                            <div class="form-icon">
+                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">Send</button>
+                                            </div>
+                                            <div class="mt-10 info"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a target="_blank">ServiceHub</a>
+  </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- Footer End-->   
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script>
+        (function () {
+            const header = document.querySelector('.header-area');
+            if (!header) return;
+
+            const threshold = 20;
+
+            const updateHeader = () => {
+                const currentScrollY = window.scrollY || 0;
+
+                if (currentScrollY > threshold) {
+                    header.classList.add('header-hidden');
+                } else {
+                    header.classList.remove('header-hidden');
+                }
+            };
+
+            let ticking = false;
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        updateHeader();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener('load', updateHeader);
+        })();
+    </script>
+
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- Date Picker -->
+    <script src="./assets/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="./assets/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/waypoints.min.js"></script>
+    <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/hover-direction-snake.min.js"></script>
+
+    <!-- contact js -->
+    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/mail-script.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <!-- Booking Modal Structure -->
+    <div class="booking-modal-overlay" id="bookingModal">
+        <div class="booking-modal-container">
+            <button class="booking-modal-close-btn" id="closeModalBtn" aria-label="Close booking modal">&times;</button>
+            <iframe class="booking-modal-iframe" id="bookingIframe" src="about:blank"></iframe>
+        </div>
+    </div>
+
+    <!-- JS for Booking Modal Interception -->
+    <script>
+        (function () {
+            const bookingModal = document.getElementById('bookingModal');
+            const bookingIframe = document.getElementById('bookingIframe');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const body = document.body;
+
+            // Open Modal Function
+            function openBookingModal(serviceName, servicePrice) {
+                if (window.isUserLoggedIn === false) {
+                    alert("Please log in to your account before booking a service.");
+                    window.location.href = '/Project/login.php';
+                    return;
+                }
+
+                // Construct query string parameters
+                const queryService = encodeURIComponent(serviceName);
+                const queryPrice = encodeURIComponent(servicePrice);
+                
+                // Set the iframe URL dynamically
+                bookingIframe.src = `booking.php?service=${queryService}&price=${queryPrice}`;
+                
+                // Show modal and disable body scrolling
+                bookingModal.classList.add('active');
+                body.classList.add('modal-open');
+            }
+
+            // Close Modal Function
+            function closeBookingModal() {
+                bookingModal.classList.remove('active');
+                body.classList.remove('modal-open');
+                
+                // Clear iframe src after transition to reset state
+                setTimeout(() => {
+                    bookingIframe.src = 'about:blank';
+                }, 400);
+            }
+
+            // Bind click events to all book buttons
+            document.addEventListener('click', function (event) {
+                // Check if target is a book button
+                if (event.target && event.target.classList.contains('book-btn')) {
+                    event.preventDefault();
+                    
+                    const btn = event.target;
+                    const menuItem = btn.closest('.menu-item');
+                    
+                    let serviceName = "General Service";
+                    let servicePrice = "₹49 onwards";
+
+                    if (menuItem) {
+                        const nameEl = menuItem.querySelector('.menu-item-name');
+                        if (nameEl) {
+                            // Extract only the text content (ignoring icon html)
+                            serviceName = nameEl.textContent.trim();
+                        }
+                        const priceEl = menuItem.querySelector('.menu-item-price');
+                        if (priceEl) {
+                            servicePrice = priceEl.textContent.trim();
+                        }
+                    }
+
+                    openBookingModal(serviceName, servicePrice);
+                }
+            });
+
+            // Close modal event listeners
+            closeModalBtn.addEventListener('click', closeBookingModal);
+            
+            // Close modal when clicking on the backdrop overlay itself
+            bookingModal.addEventListener('click', function (event) {
+                if (event.target === bookingModal) {
+                    closeBookingModal();
+                }
+            });
+
+            // Listen for messages from the iframe (e.g. closing on success)
+            window.addEventListener('message', function (event) {
+                if (event.data && event.data.action === 'close-booking-modal') {
+                    closeBookingModal();
+                }
+                
+                if (event.data && event.data.action === 'booking-success') {
+                    console.log('Booking successful:', event.data);
+                }
+            });
+
+            // Close modal on Escape key press
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && bookingModal.classList.contains('active')) {
+                    closeBookingModal();
+                }
+            });
+        })();
+    </script>
+    
+    
+    <script>
+        const defaultCategories = [
+            {
+                serviceid: 1,
+                name: "Home Cleaning",
+                description: "Professional home cleaning services including deep cleaning, regular cleaning, and move-in/move-out cleaning.",
+                sub_services: [
+                    { sub_serviceid: 1, name: "Basic Room Cleaning", description: "Standard cleaning for one room including dusting, sweeping and mopping", price_formatted: "₹249", badge: null },
+                    { sub_serviceid: 2, name: "Deep Home Cleaning", description: "Thorough cleaning of entire home with sanitization", price_formatted: "₹1,499", badge: "Popular" },
+                    { sub_serviceid: 3, name: "Kitchen Deep Clean", description: "Complete kitchen cleaning including appliances and chimney", price_formatted: "₹749", badge: "Essential" },
+                    { sub_serviceid: 4, name: "Move-in/Move-out Cleaning", description: "Full apartment cleaning for shifting purposes", price_formatted: "₹3,549", badge: null }
+                ]
+            },
+            {
+                serviceid: 2,
+                name: "Plumbing",
+                description: "Pipe repair, installation, leak fixing, drain cleaning, and all plumbing maintenance services.",
+                sub_services: [
+                    { sub_serviceid: 5, name: "Tap Installation/Repair", description: "Installation or repair of taps, faucets and valves", price_formatted: "₹79", badge: null },
+                    { sub_serviceid: 6, name: "Pipe Leak Repair", description: "Fix leaking pipes, joints and seals", price_formatted: "₹99", badge: "Urgent" },
+                    { sub_serviceid: 7, name: "Drain Cleaning", description: "Unblock and clean drainage systems", price_formatted: "₹149", badge: null },
+                    { sub_serviceid: 8, name: "Toilet Repair/Installation", description: "Toilet seat, flush and cistern repair or installation", price_formatted: "₹249", badge: null }
+                ]
+            },
+            {
+                serviceid: 3,
+                name: "Electrical",
+                description: "Wiring, repairs, installations, switchboard fixing, and electrical maintenance.",
+                sub_services: [
+                    { sub_serviceid: 9, name: "Switch/Socket Repair", description: "Repair or replace faulty switches and sockets", price_formatted: "₹59", badge: null },
+                    { sub_serviceid: 10, name: "Fan Installation/Repair", description: "Ceiling fan, exhaust fan installation or repair", price_formatted: "₹99", badge: null },
+                    { sub_serviceid: 11, name: "Light Installation", description: "Install or repair light fixtures and fittings", price_formatted: "₹99", badge: "Popular" },
+                    { sub_serviceid: 12, name: "Internal Wiring (per 5m)", description: "Concealed or open wiring per 5 meter run", price_formatted: "₹129", badge: null },
+                    { sub_serviceid: 21, name: "T.V repairing", description: "", price_formatted: "₹300", badge: null }
+                ]
+            },
+            {
+                serviceid: 5,
+                name: "AC Repair",
+                description: "AC installation, repair, gas refilling, servicing, and annual maintenance contracts.",
+                sub_services: [
+                    { sub_serviceid: 17, name: "AC Basic Service", description: "Filter cleaning, gas check and general servicing", price_formatted: "₹399", badge: null },
+                    { sub_serviceid: 18, name: "AC Deep Service", description: "Complete disassembly, jet wash and deep cleaning", price_formatted: "₹699", badge: "Hot" },
+                    { sub_serviceid: 19, name: "AC Gas Refill", description: "Refrigerant gas top-up or full refill", price_formatted: "₹999", badge: null },
+                    { sub_serviceid: 20, name: "AC Installation/Uninstallation", description: "Split or window AC installation or removal", price_formatted: "₹1,499", badge: null }
+                ]
+            },
+            {
+                serviceid: 6,
+                name: "Car Cleaning",
+                description: "",
+                sub_services: [
+                    { sub_serviceid: 22, name: "Basic Car cleaning", description: "", price_formatted: "₹599", badge: "Popular" }
+                ]
+            }
+        ];
+
+        function dismissPreloader() {
+            const p = document.getElementById('preloader-active');
+            if (p) p.style.display = 'none';
+            if (document.body) document.body.style.overflow = 'visible';
+        }
+
+        let _servicesLoaded = false;
+
+        function loadDynamicServices() {
+            dismissPreloader();
+            const container = document.getElementById('dynamicServicesContainer');
+            if (!container) return;
+
+            // Render default categories instantly so user NEVER sees loading spinner
+            if (!container.dataset.rendered) {
+                renderServicesList(defaultCategories);
+                container.dataset.rendered = 'true';
+            }
+
+            // Guard: only fetch from API once
+            if (_servicesLoaded) return;
+            _servicesLoaded = true;
+
+            const endpoints = [
+                '/Project/api/get_services.php',
+                '../../api/get_services.php',
+                'api/get_services.php'
+            ];
+
+            function tryFetch(index) {
+                if (index >= endpoints.length) return;
+                fetch(endpoints[index])
+                    .then(res => {
+                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                        return res.json();
+                    })
+                    .then(res => {
+                        if (res && res.status === 'success' && Array.isArray(res.data) && res.data.length > 0) {
+                            renderServicesList(res.data);
+                        }
+                    })
+                    .catch(() => {
+                        tryFetch(index + 1);
+                    });
+            }
+
+            tryFetch(0);
+        }
+
+        // Execute once when DOM is ready
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            loadDynamicServices();
+        } else {
+            document.addEventListener("DOMContentLoaded", loadDynamicServices);
+        }
+
+        function getCategoryIcon(name) {
+            const lower = (name || '').toLowerCase();
+            if (lower.includes('clean')) return 'fas fa-broom';
+            if (lower.includes('plumb')) return 'fas fa-wrench';
+            if (lower.includes('elec')) return 'fas fa-bolt';
+            if (lower.includes('paint')) return 'fas fa-paint-roller';
+            if (lower.includes('ac')) return 'fas fa-snowflake';
+            if (lower.includes('car')) return 'fas fa-car';
+            return 'fas fa-tools';
+        }
+
+        function renderServicesList(categories) {
+            dismissPreloader();
+            const container = document.getElementById('dynamicServicesContainer');
+            if (!container) return;
+
+            if (!categories || !categories.length) {
+                container.innerHTML = '<div class="col-12 text-center text-muted py-5">No service categories currently available.</div>';
+                return;
+            }
+
+            let fullHTML = '';
+            categories.forEach(cat => {
+                const iconClass = getCategoryIcon(cat.name);
+                const subServices = cat.sub_services || [];
+
+                fullHTML += `
+                    <div class="col-lg-12 mb-4">
+                        <div class="category-card" style="position:relative;">
+                            <div class="category-header pb-3 mb-4" style="border-bottom: 2px dashed #eee;">
+                                <div>
+                                    <h2 class="category-title" style="margin:0; font-size:26px;">${cat.name}</h2>
+                                    <p style="margin:4px 0 0 0; color:#777; font-size:13px;">${cat.description || ''}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="menu-list" id="cat-list-${cat.serviceid}">
+                                        ${subServices.length === 0 ? '<li class="text-muted py-3">No specific sub-service packages listed yet.</li>' : ''}
+                                        ${subServices.map(sub => `
+                                            <li class="menu-item subservice-item" id="sub-${sub.sub_serviceid}" style="transition: all 0.3s ease;">
+                                                <div class="menu-item-name-box" style="flex:1;">
+                                                    <span class="menu-item-name">
+                                                        ${sub.name}
+                                                        ${sub.badge ? `<span class="menu-badge">${sub.badge}</span>` : ''}
+                                                    </span>
+                                                    ${sub.description ? `<p style="margin:3px 0 0 0; font-size:12px; color:#888;">${sub.description}</p>` : ''}
+                                                </div>
+                                                <div class="menu-item-actions">
+                                                    <span class="menu-item-price">${sub.price_formatted || ('₹' + sub.price)}</span>
+                                                    <a href="#" class="book-btn" onclick="triggerSubServiceBooking('${(cat.name || '').replace(/'/g, "\\'")}', '${(sub.name || '').replace(/'/g, "\\'")}', '${(sub.price_formatted || '').replace(/'/g, "\\'")}'); return false;">Book Now</a>
+                                                </div>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = fullHTML;
+
+            // Apply category filter if passed in URL query param (e.g. ?category=Electrical or ?category=Plumbing)
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryQuery = urlParams.get('category') || urlParams.get('search') || urlParams.get('cat');
+            if (categoryQuery) {
+                const searchInput = document.getElementById('serviceSearchInput');
+                if (searchInput) {
+                    searchInput.value = categoryQuery;
+                    filterServicesBySearch();
+                    setTimeout(() => {
+                        const searchBox = document.getElementById('serviceSearchInput');
+                        if (searchBox) {
+                            searchBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 400);
+                }
+            }
+        }
+
+        window.filterServicesBySearch = function() {
+            const input = document.getElementById('serviceSearchInput');
+            if (!input) return;
+            const query = (input.value || '').toLowerCase().trim();
+            const categories = document.querySelectorAll('#dynamicServicesContainer .category-card');
+            let totalMatches = 0;
+
+            // Split query into individual words for multi-word matching
+            const queryWords = query.split(/\s+/).filter(w => w.length > 0);
+
+            // Synonym map: user types X → also match these service words
+            const synonyms = {
+                'clean': 'cleaning broom sweep mop wash sanitize dusting home deep bathroom kitchen floor house',
+                'plumb': 'plumbing pipe tap leak sink drain fitting bathroom water repair faucet toilet valve plumber',
+                'elec': 'electrical wire wiring switch socket fan light mcb board repair circuit appliance installation electrician',
+                'house': 'home cleaning deep wash kitchen bathroom apartment',
+                'ac': 'ac air conditioner gas jet filter cooling servicing installation overhaul split window',
+                'paint': 'painting wall color texture interior exterior waterproofing brush coat primer',
+                'repair': 'fix broken service maintenance replacement',
+                'tap': 'plumbing pipe leak faucet water sink',
+                'leak': 'plumbing pipe tap water drain repair',
+                'wire': 'electrical wiring switch socket circuit board electrician',
+                'fan': 'electrical appliance ceiling installation repair electrician',
+                'wash': 'cleaning home deep bathroom kitchen laundry house',
+                'pipe': 'plumbing tap leak drain fitting water repair plumber',
+                'switch': 'electrical socket board wiring installation electrician',
+                'drain': 'plumbing pipe sink bathroom blockage plumber',
+                'light': 'electrical bulb led fitting installation electrician',
+                'gas': 'ac conditioner refill servicing cooling',
+                'bathroom': 'plumbing cleaning tap pipe fitting sanitize',
+                'kitchen': 'cleaning deep wash chimney appliance'
+            };
+
+            // Expand query words with synonyms
+            let expandedQuery = query;
+            queryWords.forEach(word => {
+                Object.keys(synonyms).forEach(key => {
+                    if (word.includes(key) || key.includes(word)) {
+                        expandedQuery += ' ' + synonyms[key];
+                    }
+                });
+            });
+            const expandedWords = expandedQuery.split(/\s+/).filter(w => w.length > 0);
+
+            categories.forEach(card => {
+                const title = (card.querySelector('.category-title')?.textContent || '').toLowerCase();
+                const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
+                const subItems = card.querySelectorAll('.subservice-item');
+                let cardHasMatch = false;
+
+                subItems.forEach(item => {
+                    const subName = (item.querySelector('.menu-item-name')?.textContent || '').toLowerCase();
+                    const subDesc = (item.querySelector('p')?.textContent || '').toLowerCase();
+                    const searchable = title + ' ' + desc + ' ' + subName + ' ' + subDesc;
+
+                    if (!query) {
+                        item.style.display = 'flex';
+                        item.style.order = '0';
+                        cardHasMatch = true;
+                        return;
+                    }
+
+                    // Check: does ANY query word (or expanded synonym) appear in the searchable text?
+                    const directMatch = queryWords.some(w => searchable.includes(w));
+                    // Check: does the searchable text contain synonym-expanded terms?
+                    const synonymMatch = expandedWords.some(w => searchable.includes(w));
+
+                    if (directMatch || synonymMatch) {
+                        item.style.display = 'flex';
+                        // Boost exact matches to top
+                        item.style.order = directMatch ? '-1' : '0';
+                        cardHasMatch = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const parentCol = card.closest('.col-lg-12');
+                if (parentCol) {
+                    if (!query || title.includes(query) || cardHasMatch) {
+                        parentCol.style.display = 'block';
+                        // Prioritize categories with title match
+                        parentCol.style.order = title.includes(query) ? '-1' : '0';
+                        totalMatches++;
+                    } else {
+                        parentCol.style.display = 'none';
+                    }
+                }
+            });
+
+            const noResultEl = document.getElementById('noSearchResultNotice');
+            if (totalMatches === 0 && query.length > 0) {
+                if (!noResultEl) {
+                    const notice = document.createElement('div');
+                    notice.id = 'noSearchResultNotice';
+                    notice.className = 'col-12 text-center py-5';
+                    notice.innerHTML = `
+                        <div style="background:#fff; border-radius:15px; padding:40px; box-shadow:0 10px 30px rgba(0,0,0,0.05); max-width:500px; margin:0 auto; border:1px dashed #d19f68;">
+                            <i class="fas fa-search-minus mb-3" style="font-size:40px; color:#d19f68;"></i>
+                            <h4 style="font-family:'Oswald', sans-serif;">No Services Found</h4>
+                            <p style="color:#777; font-size:14px; margin-bottom:15px;">No services matching "${query}". Try searching for another keyword like "Plumbing", "AC", "Cleaning", "Wiring", or "Painting".</p>
+                            <button onclick="clearServiceSearch()" class="btn btn-sm" style="background:#d19f68; color:#fff; border-radius:20px; font-weight:bold; border:none; padding:8px 20px;">Show All Services</button>
+                        </div>
+                    `;
+                    document.getElementById('dynamicServicesContainer').appendChild(notice);
+                }
+            } else if (noResultEl) {
+                noResultEl.remove();
+            }
+        };
+
+        window.setSearchKeyword = function(keyword) {
+            const input = document.getElementById('serviceSearchInput');
+            if (input) {
+                input.value = keyword;
+                filterServicesBySearch();
+            }
+        };
+
+        window.clearServiceSearch = function() {
+            const input = document.getElementById('serviceSearchInput');
+            if (input) {
+                input.value = '';
+                filterServicesBySearch();
+            }
+        };
+
+        window.filterCategorySubServices = function(selectEl, listId) {
+            const selectedVal = selectEl.value;
+            const listEl = document.getElementById(listId);
+            if (!listEl) return;
+
+            const items = listEl.querySelectorAll('.subservice-item');
+            items.forEach(item => {
+                if (selectedVal === 'all' || item.id === selectedVal) {
+                    item.style.display = 'flex';
+                    if (item.id === selectedVal) {
+                        item.style.background = '#fff8f3';
+                        item.style.borderLeft = '4px solid #ff5722';
+                    } else {
+                        item.style.background = 'transparent';
+                        item.style.borderLeft = 'none';
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        };
+
+        window.triggerSubServiceBooking = function(catName, subName, priceFormatted) {
+            const fullServiceName = `${catName} (${subName})`;
+            if (typeof openBookingModal === 'function') {
+                openBookingModal(fullServiceName, priceFormatted);
+            }
+        };
+    </script>
+
+    <script src="/Project/assets/js/auth-interceptor.js"></script>
+    <script>
+    window.isUserLoggedIn = null; // null = pending check
+    const _authToken = sessionStorage.getItem('auth_token') || '';
+    fetch('/Project/api/auth.php?action=check&role=user', {
+            headers: _authToken ? {'X-Auth-Token': _authToken} : {}
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.logged_in) {
+                window.isUserLoggedIn = true;
+                if (data.token) sessionStorage.setItem('auth_token', data.token);
+                document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'block');
+                
+                if(data.user_name) {
+                    document.querySelectorAll('#profileName').forEach(el => el.textContent = data.user_name);
+                    document.querySelectorAll('#profileAvatar').forEach(el => el.textContent = data.user_name.charAt(0).toUpperCase());
+                }
+                if(data.user_email) {
+                    document.querySelectorAll('#profileEmail').forEach(el => el.textContent = data.user_email);
+                }
+            } else {
+                window.isUserLoggedIn = false;
+                document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'none');
+            }
+        })
+        .catch(() => { window.isUserLoggedIn = false; });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile-wrapper')) {
+            document.querySelectorAll('#userDropdown').forEach(el => el.classList.remove('show-dropdown'));
+        }
+    });
+</script>
+</body>
+</html>
+ 

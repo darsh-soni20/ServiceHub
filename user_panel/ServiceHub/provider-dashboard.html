@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceHub – Provider Dashboard</title>
+    <meta name="description" content="ServiceHub Service Provider Dashboard – Manage your jobs, schedule, earnings, and ratings.">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <style>
+        :root {
+            --gold:       #d19f68;
+            --gold-light: #e8c08a;
+            --gold-dark:  #a97840;
+            --gold-glow:  rgba(209,159,104,0.14);
+            --black:      #0a0b0e;
+            --dark:       #10121a;
+            --dark2:      #161921;
+            --dark3:      #1c2030;
+            --dark4:      #232840;
+            --border:     rgba(209,159,104,0.14);
+            --text:       #ece9e2;
+            --text-muted: #7d8498;
+            --success:    #27ae60;
+            --warning:    #e67e22;
+            --danger:     #c0392b;
+            --info:       #2980b9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--black);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ─── TOP HEADER ─── */
+        .top-header {
+            background: var(--dark);
+            border-bottom: 1px solid var(--border);
+            padding: 0 30px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-brand img { height: 48px; width: auto; }
+
+        .provider-chip {
+            background: linear-gradient(135deg, rgba(209,159,104,0.2), rgba(209,159,104,0.05));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .online-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .toggle-switch {
+            width: 46px;
+            height: 24px;
+            background: var(--success);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            top: 3px;
+            left: 24px;
+            transition: left 0.3s;
+        }
+
+        .toggle-switch.off { background: var(--dark4); }
+        .toggle-switch.off::after { left: 3px; }
+
+        .notif-btn {
+            width: 38px;
+            height: 38px;
+            background: var(--dark2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s;
+            position: relative;
+        }
+
+        .notif-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+        .notif-dot {
+            position: absolute;
+            top: 8px; right: 8px;
+            width: 7px; height: 7px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 1.5px solid var(--dark);
+        }
+
+        .provider-avatar-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 6px 14px 6px 6px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: var(--dark2);
+            transition: border-color 0.25s;
+        }
+
+        .provider-avatar-btn:hover { border-color: var(--gold); }
+
+        .prov-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            color: #000;
+        }
+
+        .prov-name { font-size: 13px; font-weight: 600; }
+        .prov-role { font-size: 11px; color: var(--gold); }
+
+        /* ─── LAYOUT ─── */
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 24px;
+            padding: 24px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ─── WELCOME BANNER ─── */
+        .welcome-banner {
+            background: linear-gradient(135deg, #1a1c28 0%, #121520 50%, #0f1219 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 30px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: 120px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(209,159,104,0.08), transparent 70%);
+        }
+
+        .welcome-banner::after {
+            content: '\f7d9';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 80px;
+            color: rgba(209,159,104,0.06);
+        }
+
+        .welcome-text h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .welcome-text h2 span { color: var(--gold); }
+
+        .welcome-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .welcome-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .welcome-stat {
+            text-align: center;
+        }
+
+        .welcome-stat .val {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .welcome-stat .lbl {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ─── STAT STRIP ─── */
+        .stat-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .mini-stat {
+            background: var(--dark2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .mini-stat:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .mini-icon {
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .mini-icon.gold  { background: rgba(209,159,104,0.15); color: var(--gold); }
+        .mini-icon.green { background: rgba(39,174,96,0.15);   color: #27ae60; }
+        .mini-icon.blue  { background: rgba(41,128,185,0.15);  color: #2980b9; }
+        .mini-icon.amber { background: rgba(230,126,34,0.15);  color: #e67e22; }
+
+        .mini-val {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--text);
+        }
+
+        .mini-lbl {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ─── CARD ─── */
+        .card {
+            background: var(--dark2);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .card-header {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title i { color: var(--gold); }
+
+        .card-action {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* ─── JOB CARDS ─── */
+        .job-list { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+        .job-card {
+            background: var(--dark3);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card:hover {
+            border-color: rgba(209,159,104,0.35);
+            background: var(--dark4);
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+        }
+
+        .job-card.urgent::before { background: var(--danger); }
+        .job-card.scheduled::before { background: var(--gold); }
+        .job-card.completed::before { background: var(--success); }
+
+        .job-type-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .job-type-icon.elec  { background: rgba(230,126,34,0.15); color: #e67e22; }
+        .job-type-icon.plumb { background: rgba(41,128,185,0.15);  color: #2980b9; }
+        .job-type-icon.clean { background: rgba(39,174,96,0.15);   color: #27ae60; }
+
+        .job-body { flex: 1; }
+
+        .job-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .job-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .job-meta i { margin-right: 4px; color: var(--gold); opacity: 0.7; }
+
+        .job-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .job-amount {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .btn-sm {
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--dark4);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ─── SCHEDULE ─── */
+        .schedule-list { padding: 12px 18px; display: flex; flex-direction: column; gap: 10px; }
+
+        .schedule-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: var(--dark3);
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .schedule-row:hover { background: var(--dark4); }
+
+        .schedule-time {
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold);
+            width: 70px;
+            flex-shrink: 0;
+        }
+
+        .schedule-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .schedule-info { flex: 1; }
+        .schedule-title { font-size: 13px; font-weight: 500; color: var(--text); }
+        .schedule-sub   { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+        .schedule-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+        /* ─── PROFILE CARD ─── */
+        .profile-card {
+            background: linear-gradient(160deg, var(--dark2), var(--dark3));
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px 20px;
+            text-align: center;
+            margin-bottom: 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+        }
+
+        .prov-pic {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: #000;
+            margin: 0 auto 12px;
+            border: 3px solid rgba(209,159,104,0.3);
+            box-shadow: 0 0 20px rgba(209,159,104,0.2);
+        }
+
+        .prov-full-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .prov-specialty {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .prov-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(39,174,96,0.12);
+            border: 1px solid rgba(39,174,96,0.25);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #27ae60;
+            margin-bottom: 18px;
+            transition: all 0.3s;
+        }
+
+        .prov-status.inactive {
+            background: rgba(230,126,34,0.12);
+            border-color: rgba(230,126,34,0.25);
+            color: #e67e22;
+        }
+
+        .status-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #27ae60;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-dot.inactive {
+            background: #e67e22;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%,100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .profile-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(209,159,104,0.08);
+            font-size: 13px;
+        }
+
+        .profile-info-row:last-child { border-bottom: none; }
+        .info-lbl { color: var(--text-muted); }
+        .info-val  { color: var(--text); font-weight: 500; }
+
+        .edit-profile-btn {
+            display: block;
+            margin-top: 16px;
+            padding: 10px;
+            background: var(--gold-glow);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+
+        .edit-profile-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+            border-color: var(--gold);
+        }
+
+        /* ─── SCROLLBAR & RESPONSIVE ─── */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--dark4); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+        @media (max-width: 1000px) {
+            .layout { grid-template-columns: 1fr; }
+            .stat-strip { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════ TOP HEADER ════════════════ -->
+<div class="top-header">
+    <div class="header-brand">
+        <img src="assets/img/logo/logo.png" alt="ServiceHub">
+        <span class="provider-chip">Provider Portal</span>
+    </div>
+    <div class="header-right">
+        <div class="online-toggle">
+            <span id="toggleLabelText">Online</span>
+            <div class="toggle-switch" id="onlineToggle" onclick="toggleOnline(this)"></div>
+        </div>
+        <div class="notif-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notif-dot"></span>
+        </div>
+        <div class="provider-avatar-btn">
+            <div class="prov-avatar">P</div>
+            <div>
+                <div class="prov-name">Provider Name</div>
+                <div class="prov-role">Category</div>
+            </div>
+        </div>
+        <div class="notif-btn" onclick="sessionStorage.clear(); localStorage.removeItem('auth_token'); fetch('/Project/api/auth.php?action=logout').then(()=>window.location.href='/Project/login.php')" title="Logout" style="cursor:pointer;">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════ LAYOUT ════════════════ -->
+<div class="layout">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+        <!-- WELCOME BANNER -->
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h2>Welcome Back, <span id="welcomeName">Partner!</span></h2>
+                <p>Manage your service requests, jobs schedule, and active status below.</p>
+            </div>
+            <div class="welcome-stats">
+                <div class="welcome-stat">
+                    <div class="val" id="bannerJobsDone">0</div>
+                    <div class="lbl">Jobs Done</div>
+                </div>
+                <div class="welcome-stat">
+                    <div class="val">4.8★</div>
+                    <div class="lbl">Rating</div>
+                </div>
+                <div class="welcome-stat">
+                    <div class="val" id="bannerMonthEarnings">₹0</div>
+                    <div class="lbl">Earnings</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAT STRIP -->
+        <div class="stat-strip">
+            <div class="mini-stat">
+                <div class="mini-icon gold"><i class="fas fa-briefcase"></i></div>
+                <div>
+                    <div class="mini-val" id="statNewRequests">0</div>
+                    <div class="mini-lbl">New Requests</div>
+                </div>
+            </div>
+            <div class="mini-stat">
+                <div class="mini-icon green"><i class="fas fa-check-circle"></i></div>
+                <div>
+                    <div class="mini-val" id="statTodayJobs">0</div>
+                    <div class="mini-lbl">Today's Jobs</div>
+                </div>
+            </div>
+            <div class="mini-stat">
+                <div class="mini-icon blue"><i class="fas fa-rupee-sign"></i></div>
+                <div>
+                    <div class="mini-val" id="statEarnings">₹0</div>
+                    <div class="mini-lbl">Total Earnings</div>
+                </div>
+            </div>
+            <div class="mini-stat">
+                <div class="mini-icon amber"><i class="fas fa-star"></i></div>
+                <div>
+                    <div class="mini-val">4.8★</div>
+                    <div class="mini-lbl">Your Rating</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW JOB REQUESTS -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title"><i class="fas fa-inbox"></i> New Service Requests (<span id="newRequestsBadge">0</span>)</div>
+                <a class="card-action" href="javascript:void(0)" onclick="loadDashboardData()">Refresh</a>
+            </div>
+            <div class="job-list" id="jobRequestsContainer">
+                <div style="padding:20px; text-align:center; color:var(--text-muted);">Loading live service requests...</div>
+            </div>
+        </div>
+
+        <!-- TODAY'S SCHEDULE -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title"><i class="fas fa-calendar-day"></i> Accepted Jobs & Schedule</div>
+                <a class="card-action" href="javascript:void(0)" onclick="loadDashboardData()">Update</a>
+            </div>
+            <div class="schedule-list" id="scheduleContainer">
+                <div style="padding:20px; text-align:center; color:var(--text-muted);">Loading schedule...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+        <!-- PROFILE CARD -->
+        <div class="profile-card">
+            <div class="prov-pic">P</div>
+            <div class="prov-full-name">Provider Name</div>
+            <div class="prov-specialty"><i class="fas fa-tools"></i> Service Category</div>
+            <div class="prov-status" id="provStatusBadge">
+                <div class="status-dot"></div>
+                Available Now
+            </div>
+            <div>
+                <div class="profile-info-row">
+                    <span class="info-lbl"><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i>Phone</span>
+                    <span class="info-val" id="provPhone">--</span>
+                </div>
+                <div class="profile-info-row">
+                    <span class="info-lbl"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i>City/Area</span>
+                    <span class="info-val" id="provCity">--</span>
+                </div>
+                <div class="profile-info-row">
+                    <span class="info-lbl"><i class="fas fa-id-badge" style="color:var(--gold);margin-right:6px;"></i>Provider ID</span>
+                    <span class="info-val" id="provId">SH-PRV-0001</span>
+                </div>
+            </div>
+            <button class="edit-profile-btn" onclick="openEditProfileModal()"><i class="fas fa-pen"></i>&nbsp; Edit Profile</button>
+        </div>
+
+        <!-- RATINGS CARD -->
+        <div class="card" style="margin-bottom:22px;">
+            <div class="card-header">
+                <div class="card-title"><i class="fas fa-star"></i> Customer Rating</div>
+            </div>
+            <div style="padding:20px; text-align:center;">
+                <div style="font-size:22px; color:var(--gold); letter-spacing:3px;">★★★★★</div>
+                <div style="font-family:'Oswald',sans-serif; font-size:42px; font-weight:700; color:var(--gold); margin-top:4px;">4.8</div>
+                <div style="font-size:12px; color:var(--text-muted);">Based on customer reviews</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ════════════════ EDIT PROFILE MODAL ════════════════ -->
+<div id="editProfileModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+    <div class="modal-card" style="background:var(--dark2); border:1px solid var(--border); border-radius:16px; width:100%; max-width:520px; padding:28px; box-shadow:0 20px 50px rgba(0,0,0,0.6); position:relative;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:20px;">
+            <h3 style="font-family:'Oswald',sans-serif; font-size:20px; color:var(--text); display:flex; align-items:center; gap:10px;">
+                <i class="fas fa-user-edit" style="color:var(--gold);"></i> Edit Provider Profile
+            </h3>
+            <button onclick="closeEditProfileModal()" style="background:none; border:none; color:var(--text-muted); font-size:24px; cursor:pointer; transition:color 0.2s;">&times;</button>
+        </div>
+        <form id="editProfileForm" onsubmit="handleProfileSubmit(event)">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+                <div>
+                    <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">Full Name *</label>
+                    <input type="text" id="editName" required style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+                </div>
+                <div>
+                    <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">Phone Number *</label>
+                    <input type="tel" id="editPhone" required style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+                </div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+                <div>
+                    <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">Service Category *</label>
+                    <select id="editCategory" required style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+                        <option value="Home Cleaning">Home Cleaning</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Painting">Painting</option>
+                        <option value="AC Repair">AC Repair</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">Experience (Years)</label>
+                    <input type="number" id="editExperience" min="0" max="50" style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+                </div>
+            </div>
+            <div style="margin-bottom:14px;">
+                <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">Address / Street</label>
+                <input type="text" id="editAddress" style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px;">
+                <div>
+                    <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">City</label>
+                    <input type="text" id="editCity" style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+                </div>
+                <div>
+                    <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px;">Pincode</label>
+                    <input type="text" id="editPincode" style="width:100%; background:var(--dark3); border:1px solid var(--dark4); border-radius:8px; padding:10px 14px; color:#fff; font-size:13px;">
+                </div>
+            </div>
+            <div id="profileMsg" style="font-size:12px; margin-bottom:14px; display:none;"></div>
+            <div style="display:flex; justify-content:flex-end; gap:12px;">
+                <button type="button" onclick="closeEditProfileModal()" style="padding:10px 20px; background:transparent; border:1px solid var(--dark4); color:var(--text-muted); border-radius:8px; cursor:pointer; font-size:13px;">Cancel</button>
+                <button type="submit" id="saveProfileBtn" style="padding:10px 24px; background:linear-gradient(135deg, var(--gold), var(--gold-dark)); border:none; color:#000; font-weight:600; border-radius:8px; cursor:pointer; font-size:13px;">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/Project/assets/js/auth-interceptor.js"></script>
+<script>
+    let currentProviderData = null;
+
+    function providerFetch(url, options = {}) {
+        const token = sessionStorage.getItem('auth_token') || '';
+        options.headers = options.headers || {};
+        if (token) {
+            options.headers['X-Auth-Token'] = token;
+        }
+        return fetch(url, options);
+    }
+
+    // Fetch and render dashboard data on load
+    async function loadDashboardData() {
+        try {
+            const res = await providerFetch('/Project/api/provider_api.php?action=get_dashboard');
+            const data = await res.json();
+            
+            if (data.status === 'success') {
+                currentProviderData = data.provider;
+                renderProviderProfile(data.provider);
+                renderStats(data.stats, data.provider);
+                renderJobRequests(data.requests);
+                renderSchedule(data.schedule);
+            } else {
+                console.error('Error fetching provider data:', data.message);
+            }
+        } catch (err) {
+            console.error('Dashboard load failed:', err);
+        }
+    }
+
+    // 1. Render Profile and Online/Offline Toggle
+    function renderProviderProfile(prov) {
+        const initials = prov.name ? prov.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() : 'P';
+        
+        // Header Avatar & Info
+        document.querySelectorAll('.prov-avatar').forEach(el => el.textContent = initials);
+        document.querySelectorAll('.prov-pic').forEach(el => el.textContent = initials);
+        document.querySelectorAll('.prov-name').forEach(el => el.textContent = prov.name);
+        document.querySelectorAll('.prov-full-name').forEach(el => el.textContent = prov.name);
+        document.querySelectorAll('.prov-role').forEach(el => el.textContent = prov.category);
+        document.querySelectorAll('.prov-specialty').forEach(el => {
+            let icon = 'fa-tools';
+            if (prov.category && prov.category.includes('Clean')) icon = 'fa-broom';
+            else if (prov.category && prov.category.includes('Plumb')) icon = 'fa-wrench';
+            else if (prov.category && prov.category.includes('Elec')) icon = 'fa-bolt';
+            else if (prov.category && prov.category.includes('Paint')) icon = 'fa-paint-roller';
+            else if (prov.category && prov.category.includes('AC')) icon = 'fa-snowflake';
+            el.innerHTML = `<i class="fas ${icon}"></i> ${prov.category}`;
+        });
+
+        // Header Toggle & Profile Status Card
+        const toggle = document.getElementById('onlineToggle');
+        const toggleLabel = document.getElementById('toggleLabelText');
+        const statusBadge = document.getElementById('provStatusBadge');
+
+        if (prov.status === 'Active') {
+            if (toggle) toggle.classList.remove('off');
+            if (toggleLabel) toggleLabel.textContent = 'Online';
+            if (statusBadge) {
+                statusBadge.className = 'prov-status';
+                statusBadge.innerHTML = `<div class="status-dot"></div> Available Now`;
+            }
+        } else {
+            if (toggle) toggle.classList.add('off');
+            if (toggleLabel) toggleLabel.textContent = 'Offline';
+            if (statusBadge) {
+                statusBadge.className = 'prov-status inactive';
+                statusBadge.innerHTML = `<div class="status-dot inactive"></div> Inactive (Offline)`;
+            }
+        }
+
+        // Details in Profile Card
+        const phoneEl = document.getElementById('provPhone');
+        if (phoneEl) phoneEl.textContent = prov.phone || 'N/A';
+
+        const cityEl = document.getElementById('provCity');
+        if (cityEl) cityEl.textContent = prov.city || prov.address || 'N/A';
+
+        const idEl = document.getElementById('provId');
+        if (idEl) idEl.textContent = 'SH-PRV-' + String(prov.providerid).padStart(4, '0');
+
+        // Welcome banner name
+        const firstName = prov.name ? prov.name.split(' ')[0] : 'Partner';
+        const bannerTitle = document.getElementById('welcomeName');
+        if (bannerTitle) bannerTitle.textContent = firstName + '!';
+    }
+
+    // Toggle Online / Inactive State in DB & UI
+    async function toggleOnline(el) {
+        const isCurrentlyOffline = el.classList.contains('off');
+        const newStatus = isCurrentlyOffline ? 'Active' : 'Inactive';
+        
+        try {
+            const res = await providerFetch('/Project/api/provider_api.php?action=toggle_status', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus })
+            });
+            const data = await res.json();
+            
+            if (data.status === 'success') {
+                if (currentProviderData) currentProviderData.status = newStatus;
+                renderProviderProfile(currentProviderData);
+            } else {
+                alert('Failed to update status: ' + data.message);
+            }
+        } catch (err) {
+            console.error('Toggle status error:', err);
+        }
+    }
+
+    // 2. Render Job Requests (Dynamic Accept / Decline)
+    function renderJobRequests(requests) {
+        const container = document.getElementById('jobRequestsContainer');
+        const badgeCount = document.getElementById('newRequestsBadge');
+        
+        if (badgeCount) badgeCount.textContent = requests ? requests.length : 0;
+
+        if (!requests || requests.length === 0) {
+            container.innerHTML = `
+                <div style="padding:30px; text-align:center; color:var(--text-muted);">
+                    <i class="fas fa-check-circle" style="font-size:32px; color:var(--success); margin-bottom:10px; display:block;"></i>
+                    No pending job requests right now. You are all caught up!
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = requests.map(req => {
+            let iconClass = 'elec';
+            let icon = 'fa-bolt';
+            if (req.service_name && req.service_name.includes('Plumb')) { iconClass = 'plumb'; icon = 'fa-wrench'; }
+            else if (req.service_name && req.service_name.includes('Clean')) { iconClass = 'clean'; icon = 'fa-broom'; }
+
+            return `
+                <div class="job-card scheduled" id="job-card-${req.bookingid}">
+                    <div class="job-type-icon ${iconClass}"><i class="fas ${icon}"></i></div>
+                    <div class="job-body">
+                        <div class="job-title">${req.service_name || 'Service'} – ${req.booking_ref}</div>
+                        <div class="job-meta">
+                            <span><i class="fas fa-user"></i> ${req.customer_name || 'Customer'}</span>
+                            <span><i class="fas fa-phone"></i> ${req.customer_phone || 'N/A'}</span>
+                            <span><i class="fas fa-calendar"></i> ${req.date} ${req.time}</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${req.customer_address || 'Location specified'}</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <div class="job-amount">₹${parseFloat(req.amount).toFixed(0)}</div>
+                        <button class="btn-sm btn-gold" onclick="updateBookingStatus(${req.bookingid}, 'confirmed', this)">Accept</button>
+                        <button class="btn-sm btn-outline" onclick="updateBookingStatus(${req.bookingid}, 'cancelled', this)">Decline</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Handle Accept / Decline API Call
+    async function updateBookingStatus(bookingId, status, btn) {
+        btn.disabled = true;
+        btn.textContent = 'Processing...';
+
+        try {
+            const res = await providerFetch('/Project/api/provider_api.php?action=update_booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ booking_id: bookingId, status: status })
+            });
+            const data = await res.json();
+
+            if (data.status === 'success') {
+                const card = document.getElementById(`job-card-${bookingId}`);
+                if (card) {
+                    card.style.transition = 'all 0.4s';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        loadDashboardData();
+                    }, 400);
+                } else {
+                    loadDashboardData();
+                }
+            } else {
+                alert('Failed to update booking: ' + data.message);
+                btn.disabled = false;
+            }
+        } catch (err) {
+            console.error('Update booking error:', err);
+            btn.disabled = false;
+        }
+    }
+
+    // 3. Render Schedule
+    function renderSchedule(schedule) {
+        const container = document.getElementById('scheduleContainer');
+        if (!schedule || schedule.length === 0) {
+            container.innerHTML = `
+                <div style="padding:20px; text-align:center; color:var(--text-muted);">
+                    No upcoming confirmed jobs in schedule.
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = schedule.map(job => {
+            let badgeBg = 'rgba(209,159,104,0.15)';
+            let badgeColor = 'var(--gold)';
+            let badgeText = job.status.toUpperCase();
+
+            if (job.status === 'completed') {
+                badgeBg = 'rgba(39,174,96,0.15)';
+                badgeColor = '#27ae60';
+            }
+
+            return `
+                <div class="schedule-row">
+                    <div class="schedule-time">${job.time ? job.time.substring(0, 5) : '10:00'}</div>
+                    <div class="schedule-dot" style="background:${badgeColor};box-shadow:0 0 6px ${badgeColor};"></div>
+                    <div class="schedule-info">
+                        <div class="schedule-title">${job.service_name || 'Service'} – ${job.customer_name || 'Customer'}</div>
+                        <div class="schedule-sub"><i class="fas fa-map-marker-alt" style="color:var(--gold);"></i> ${job.customer_address || 'Customer Location'} | Date: ${job.date}</div>
+                    </div>
+                    <span class="schedule-badge" style="background:${badgeBg};color:${badgeColor};">${badgeText}</span>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Render Stats
+    function renderStats(stats, prov) {
+        const reqCount = document.getElementById('statNewRequests');
+        if (reqCount) reqCount.textContent = stats.new_requests_count;
+
+        const todayJobs = document.getElementById('statTodayJobs');
+        if (todayJobs) todayJobs.textContent = stats.today_jobs_count;
+
+        const totalEarn = document.getElementById('statEarnings');
+        if (totalEarn) totalEarn.textContent = '₹' + stats.total_earnings.toLocaleString();
+
+        const bannerEarnings = document.getElementById('bannerMonthEarnings');
+        if (bannerEarnings) bannerEarnings.textContent = '₹' + stats.total_earnings.toLocaleString();
+
+        const bannerJobs = document.getElementById('bannerJobsDone');
+        if (bannerJobs) bannerJobs.textContent = (prov.experience || 1) * 10 + stats.completed_jobs;
+    }
+
+    // 4. Edit Profile Modal Logic
+    function openEditProfileModal() {
+        if (!currentProviderData) return;
+        document.getElementById('editName').value = currentProviderData.name || '';
+        document.getElementById('editPhone').value = currentProviderData.phone || '';
+        document.getElementById('editCategory').value = currentProviderData.category || 'Home Cleaning';
+        document.getElementById('editExperience').value = currentProviderData.experience || 0;
+        document.getElementById('editAddress').value = currentProviderData.address || '';
+        document.getElementById('editCity').value = currentProviderData.city || '';
+        document.getElementById('editPincode').value = currentProviderData.pincode || '';
+        
+        document.getElementById('profileMsg').style.display = 'none';
+        document.getElementById('editProfileModal').style.display = 'flex';
+    }
+
+    function closeEditProfileModal() {
+        document.getElementById('editProfileModal').style.display = 'none';
+    }
+
+    async function handleProfileSubmit(e) {
+        e.preventDefault();
+        const btn = document.getElementById('saveProfileBtn');
+        const msg = document.getElementById('profileMsg');
+
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        const payload = {
+            name: document.getElementById('editName').value.trim(),
+            phone: document.getElementById('editPhone').value.trim(),
+            category: document.getElementById('editCategory').value,
+            experience: parseInt(document.getElementById('editExperience').value) || 0,
+            address: document.getElementById('editAddress').value.trim(),
+            city: document.getElementById('editCity').value.trim(),
+            pincode: document.getElementById('editPincode').value.trim()
+        };
+
+        try {
+            const res = await providerFetch('/Project/api/provider_api.php?action=update_profile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (data.status === 'success') {
+                msg.style.color = '#27ae60';
+                msg.textContent = 'Profile updated successfully!';
+                msg.style.display = 'block';
+                setTimeout(() => {
+                    closeEditProfileModal();
+                    loadDashboardData();
+                }, 800);
+            } else {
+                msg.style.color = '#e74c3c';
+                msg.textContent = data.message || 'Failed to update profile';
+                msg.style.display = 'block';
+            }
+        } catch (err) {
+            console.error('Profile update error:', err);
+            msg.style.color = '#e74c3c';
+            msg.textContent = 'Network error during save.';
+            msg.style.display = 'block';
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Save Changes';
+        }
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', loadDashboardData);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ServiceHub - My Bookings</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/gijgo.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/animated-headline.css">
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="assets/css/themify-icons.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/nice-select.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .header-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+            will-change: transform, opacity;
+        }
+
+        .header-area.header-hidden {
+            transform: translateY(-110%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body {
+            padding-top: 0;
+        }
+
+        .main-header.header-sticky {
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!--? Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt="" style="height: 130px; width: 300px;"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="header-right-btn f-right d-none d-lg-block ml-30 d-flex align-items-center">
+                                    <a href="/Project/login.php" class="btn header-btn auth-login">Login / Sign Up</a>
+                                    
+                                    <div class="user-profile-wrapper auth-user" style="display:none; position:relative; cursor:pointer; margin-left: 15px;">
+                                        <div class="user-profile-trigger d-flex align-items-center" onclick="document.getElementById('userDropdown').classList.toggle('show-dropdown')" style="gap: 12px; padding: 8px 18px 8px 8px; background: rgba(209,159,104,0.05); border: 1px solid rgba(209,159,104,0.2); border-radius: 40px; transition: all 0.3s;">
+                                            <div class="profile-avatar" style="width: 38px; height: 38px; background: #d19f68; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:18px;" id="profileAvatar">U</div>
+                                            <div class="profile-info text-left">
+                                                <span class="profile-name" id="profileName" style="display:block; color:#fff; font-size:14px; font-weight:600; line-height:1.2;">User</span>
+                                                <span class="profile-role" style="display:block; color:#d19f68; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Customer</span>
+                                            </div>
+                                            <i class="fas fa-chevron-down" style="color:#a5b1c2; font-size:12px; margin-left:5px;"></i>
+                                        </div>
+                                        
+                                        <div id="userDropdown" class="profile-dropdown-menu" style="position:absolute; top:calc(100% + 15px); right:0; width:240px; background:#121620; border:1px solid rgba(209,159,104,0.2); border-radius:12px; box-shadow:0 15px 35px rgba(0,0,0,0.6); padding:10px 0; opacity:0; visibility:hidden; transform:translateY(15px); transition:all 0.3s; z-index:999;">
+                                            <div class="dropdown-header" style="padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.05); margin-bottom:5px;">
+                                                <span style="display:block; color:rgba(255,255,255,0.4); font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Signed in as</span>
+                                                <span id="profileEmail" style="display:block; color:#fff; font-size:13px; word-break:break-all; font-weight:500;">user@email.com</span>
+                                            </div>
+                                            <a href="my-profile.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-user-circle" style="color:#d19f68; font-size:16px;"></i> My Profile</a>
+                                            <a href="my-bookings.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-calendar-check" style="color:#d19f68; font-size:16px;"></i> My Bookings</a>
+                                            <div style="height:1px; background:rgba(255,255,255,0.05); margin:5px 0;"></div>
+                                            <a href="#" class="dropdown-item text-danger" onclick="sessionStorage.clear(); localStorage.removeItem('auth_token'); fetch('/Project/api/auth.php?action=logout&role=user').then(()=>window.location.href='index.html')" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#ff4a4a; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-sign-out-alt" style="font-size:16px;"></i> Log Out</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <style>
+                                        .show-dropdown { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; }
+                                        .dropdown-item:hover { background: rgba(209,159,104,0.1); color:#d19f68 !important; }
+                                        .dropdown-item.text-danger:hover { background: rgba(255,74,74,0.1); color:#ff4a4a !important; }
+                                        .user-profile-trigger:hover { background: rgba(209,159,104,0.15) !important; border-color:rgba(209,159,104,0.4) !important; }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>   
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <div class="bookings-area" style="min-height: 100vh; background: #0b0e14 url('assets/img/hero/h1_hero.jpg') center/cover no-repeat; padding-top: 150px; padding-bottom: 100px; position:relative; z-index: 1;">
+            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(11, 14, 20, 0.85); z-index:-1;"></div>
+            
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="glass-card" style="background: rgba(18, 22, 32, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); position:relative; overflow:hidden;">
+                            
+                            <!-- Decor element -->
+                            <div style="position:absolute; top:-50px; left:-50px; width:150px; height:150px; background:var(--primary, #d19f68); filter:blur(80px); opacity:0.2; border-radius:50%; z-index:0;"></div>
+
+                            <div style="position:relative; z-index:1;">
+                                <h2 style="color:#fff; font-family:'Oswald', sans-serif; font-size:32px; letter-spacing:1px; margin-bottom:30px;">My Bookings</h2>
+
+                                <div id="bookingsList" style="display:flex; flex-direction:column; gap:20px;">
+                                    <div class="text-center" id="bookingsLoading" style="color:rgba(255,255,255,0.5); padding:50px 0;">
+                                        <i class="fas fa-spinner fa-spin fa-2x mb-3" style="color:var(--primary);"></i>
+                                        <p>Loading your bookings...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function loadBookings() {
+                const list = document.getElementById('bookingsList');
+                const token = sessionStorage.getItem('auth_token') || '';
+                fetch('/Project/api/my-bookings.php', {
+                    headers: token ? {'X-Auth-Token': token} : {}
+                })
+                    .then(res => {
+                        if (res.status === 401) {
+                            window.location.href = '/Project/login.php';
+                            return null;
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (!data) return;
+                        if (data.status === 'success') {
+                            if (!data.data || data.data.length === 0) {
+                                list.innerHTML = `
+                                    <div class="text-center" style="padding:50px 0; background:rgba(0,0,0,0.2); border-radius:15px; border:1px dashed rgba(255,255,255,0.1);">
+                                        <i class="fas fa-calendar-times mb-3" style="font-size:40px; color:rgba(255,255,255,0.2);"></i>
+                                        <h4 style="color:#fff; font-family:'Oswald', sans-serif;">No Bookings Found</h4>
+                                        <p style="color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:20px;">You haven't scheduled any services yet.</p>
+                                        <a href="services.html" class="btn" style="background:var(--primary); color:#000; padding:10px 25px; border-radius:30px; font-weight:bold;">Book a Service</a>
+                                    </div>
+                                `;
+                                return;
+                            }
+                            
+                            list.innerHTML = '';
+                            data.data.forEach(booking => {
+                                let statusColor = '#f39c12'; // pending
+                                if (booking.status === 'confirmed') statusColor = '#2ecc71';
+                                if (booking.status === 'canceled' || booking.status === 'declined') statusColor = '#e74c3c';
+                                
+                                const providerPhone = booking.provider_phone || 'N/A';
+                                const providerRating = booking.provider_rating ? parseFloat(booking.provider_rating).toFixed(1) : '4.8';
+                                const providerExp = booking.provider_experience ? `${booking.provider_experience} yrs exp` : '';
+
+                                const html = `
+                                    <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.05); border-radius:15px; padding:25px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; transition:all 0.3s; margin-bottom:15px;" onmouseover="this.style.background='rgba(0,0,0,0.5)'; this.style.borderColor='rgba(209,159,104,0.3)';" onmouseout="this.style.background='rgba(0,0,0,0.3)'; this.style.borderColor='rgba(255,255,255,0.05)';">
+                                        <div style="flex:1; min-width:280px; margin-bottom:15px;">
+                                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                                                <span style="color:var(--primary); font-weight:bold; font-size:18px;">${booking.service_name}</span>
+                                                <span style="background:rgba(255,255,255,0.1); color:#fff; font-size:11px; padding:3px 10px; border-radius:20px; letter-spacing:1px;">${booking.booking_ref}</span>
+                                            </div>
+                                            <div style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:12px;">
+                                                <i class="far fa-calendar-alt mr-2" style="color:var(--primary);"></i> ${booking.date} at ${booking.time}
+                                            </div>
+
+                                            ${booking.otp ? `
+                                                <div style="background:rgba(46,204,113,0.12); border:1px solid rgba(46,204,113,0.3); color:#2ecc71; padding:8px 14px; border-radius:8px; font-size:13px; font-weight:bold; display:inline-flex; align-items:center; gap:8px; margin-bottom:12px;">
+                                                    <i class="fas fa-key"></i> Service Start OTP: <span style="font-size:16px; letter-spacing:2px; color:#fff; background:rgba(46,204,113,0.3); padding:2px 8px; border-radius:6px;">${booking.otp}</span>
+                                                </div>
+                                            ` : ''}
+                                            
+                                            <!-- Service Provider Details Card -->
+                                            <div style="background: rgba(209,159,104,0.08); border: 1px solid rgba(209,159,104,0.2); border-radius: 12px; padding: 12px 15px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+                                                <div style="display:flex; align-items:center; gap:10px;">
+                                                    <div style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:#000; font-weight:bold; display:flex; align-items:center; justify-content:center; font-size:16px;">
+                                                        ${(booking.provider_name || 'P').charAt(0).toUpperCase()}
+                                                    </div>
+                                                    <div>
+                                                        <div style="color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; gap:6px;">
+                                                            ${booking.provider_name || 'Assigning Technician...'}
+                                                            <span style="background:rgba(241,196,15,0.2); color:#f1c40f; font-size:11px; padding:2px 8px; border-radius:10px; font-weight:bold;"><i class="fas fa-star" style="font-size:10px;"></i> ${providerRating}</span>
+                                                        </div>
+                                                        <div style="color:rgba(255,255,255,0.5); font-size:12px;">
+                                                            <i class="fas fa-phone-alt mr-1" style="color:var(--primary);"></i> ${providerPhone} ${providerExp ? `• ${providerExp}` : ''}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                ${booking.provider_phone && booking.provider_phone !== 'N/A' ? `
+                                                    <a href="tel:${booking.provider_phone}" style="background:var(--primary); color:#000; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:bold; text-decoration:none; display:inline-flex; align-items:center; gap:5px;">
+                                                        <i class="fas fa-phone"></i> Call Provider
+                                                    </a>
+                                                ` : ''}
+                                            </div>
+                                        </div>
+                                        <div style="text-align:right; min-width:150px; margin-top:15px;">
+                                            <div style="font-size:22px; font-weight:bold; color:#fff; margin-bottom:5px;">₹${booking.amount}</div>
+                                            <div style="font-size:12px; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:10px;">Via ${booking.paymentmode}</div>
+                                            <span id="status-${booking.bookingid}" style="background:${statusColor}20; color:${statusColor}; border:1px solid ${statusColor}40; padding:5px 15px; border-radius:20px; font-size:12px; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">
+                                                ${booking.status}
+                                            </span>
+                                            <div style="margin-top:12px; display:flex; flex-direction:column; gap:6px; align-items:flex-end;">
+                                                <a href="/Project/api/invoice.php?bookingid=${booking.bookingid}" target="_blank" style="background:rgba(209,159,104,0.15); border:1px solid rgba(209,159,104,0.4); color:var(--primary); padding:5px 14px; border-radius:15px; font-size:11px; font-weight:bold; text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:all 0.2s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#000';" onmouseout="this.style.background='rgba(209,159,104,0.15)'; this.style.color='var(--primary)';">
+                                                    <i class="fas fa-file-invoice"></i> Download Invoice
+                                                </a>
+                                                ${booking.status === 'pending' ? `
+                                                    <button onclick="cancelBooking(${booking.bookingid}, this)" style="background:rgba(231,76,60,0.15); border:1px solid rgba(231,76,60,0.3); color:#e74c3c; padding:4px 12px; border-radius:15px; font-size:11px; cursor:pointer; font-weight:bold;">Cancel</button>
+                                                ` : ''}
+                                                ${(booking.status === 'completed' || booking.status === 'confirmed') && !booking.user_rating ? `
+                                                    <button onclick="openReviewModal(${booking.bookingid}, ${booking.providerid || 0}, '${(booking.provider_name||'Provider').replace(/'/g,"\\'")}')" style="background:linear-gradient(135deg, rgba(255,193,7,0.2), rgba(209,159,104,0.2)); border:1px solid rgba(255,193,7,0.4); color:#ffc107; padding:5px 14px; border-radius:15px; font-size:11px; cursor:pointer; font-weight:bold; display:inline-flex; align-items:center; gap:5px;">
+                                                        <i class="fas fa-star"></i> Rate & Review
+                                                    </button>
+                                                ` : ''}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    ${booking.user_rating ? `
+                                    <div style="margin-top:12px; padding:14px 18px; background:rgba(255,193,7,0.06); border:1px solid rgba(255,193,7,0.15); border-radius:12px;">
+                                        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                                            <span style="font-size:12px; color:rgba(255,255,255,0.5); font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Your Review:</span>
+                                            <span style="color:#ffc107; font-size:14px; letter-spacing:2px;">${'★'.repeat(booking.user_rating)}${'☆'.repeat(5-booking.user_rating)}</span>
+                                            <span style="color:rgba(255,255,255,0.3); font-size:12px;">(${booking.user_rating}/5)</span>
+                                        </div>
+                                        ${booking.user_review ? `<p style="color:rgba(255,255,255,0.7); font-size:13px; margin:8px 0 0; line-height:1.5; font-style:italic;">"${booking.user_review}"</p>` : ''}
+                                    </div>
+                                    ` : ''}
+                                `;
+                                list.innerHTML += html;
+                            });
+                        } else {
+                            list.innerHTML = `<div class="text-center text-muted py-4"><p>${data.message || 'Unable to load bookings.'}</p></div>`;
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Bookings load error:', err);
+                        list.innerHTML = '<div class="text-center py-4"><p style="color:#e74c3c;">Failed to load bookings. Please log in or refresh.</p><a href="/Project/login.php" class="btn btn-sm mt-2" style="background:var(--primary); color:#000;">Log In</a></div>';
+                    });
+            }
+
+            loadBookings();
+        });
+
+
+        window.cancelBooking = function(bookingId, btnElement) {
+            if (confirm('Are you sure you want to cancel this booking?')) {
+                btnElement.textContent = 'Canceling...';
+                btnElement.disabled = true;
+                
+                fetch('/Project/api/my-bookings.php', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ bookingid: bookingId, action: 'cancel' })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const statusBadge = document.getElementById(`status-${bookingId}`);
+                        statusBadge.textContent = 'canceled';
+                        statusBadge.style.background = '#e74c3c20';
+                        statusBadge.style.color = '#e74c3c';
+                        statusBadge.style.borderColor = '#e74c3c40';
+                        btnElement.remove();
+                    } else {
+                        alert(data.message || 'Failed to cancel booking');
+                        btnElement.textContent = 'Cancel';
+                        btnElement.disabled = false;
+                    }
+                })
+                .catch(err => {
+                    alert('Network error occurred.');
+                    btnElement.textContent = 'Cancel';
+                    btnElement.disabled = false;
+                });
+            }
+        };
+
+        // ── Review Modal Logic ──
+        window.openReviewModal = function(bookingId, providerId, providerName) {
+            document.getElementById('reviewBookingId').value = bookingId;
+            document.getElementById('reviewProviderId').value = providerId;
+            document.getElementById('reviewProviderName').textContent = providerName;
+            document.getElementById('reviewText').value = '';
+            // Reset stars
+            document.querySelectorAll('#reviewStars .review-star').forEach((s, i) => {
+                s.classList.toggle('active', i < 5);
+            });
+            document.getElementById('reviewRatingValue').value = 5;
+            document.getElementById('reviewModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeReviewModal = function() {
+            document.getElementById('reviewModal').classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        window.setReviewRating = function(rating) {
+            document.getElementById('reviewRatingValue').value = rating;
+            document.querySelectorAll('#reviewStars .review-star').forEach((s, i) => {
+                s.classList.toggle('active', i < rating);
+            });
+        };
+
+        window.submitReview = function() {
+            const bookingId = document.getElementById('reviewBookingId').value;
+            const providerId = document.getElementById('reviewProviderId').value;
+            const rating = document.getElementById('reviewRatingValue').value;
+            const reviewText = document.getElementById('reviewText').value.trim();
+            const btn = document.getElementById('submitReviewBtn');
+
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+
+            const token = sessionStorage.getItem('auth_token') || '';
+            const headers = {'Content-Type': 'application/json'};
+            if (token) headers['X-Auth-Token'] = token;
+
+            fetch('/Project/api/reviews.php?action=add_review', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({
+                    booking_id: parseInt(bookingId),
+                    provider_id: parseInt(providerId),
+                    rating: parseInt(rating),
+                    review_text: reviewText
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    closeReviewModal();
+                    alert('Thank you for your review!');
+                    location.reload();
+                } else {
+                    alert(data.message || 'Failed to submit review.');
+                    btn.textContent = 'Submit Review';
+                    btn.disabled = false;
+                }
+            })
+            .catch(() => {
+                alert('Network error. Please try again.');
+                btn.textContent = 'Submit Review';
+                btn.disabled = false;
+            });
+        };
+    </script>
+
+    <!-- Review Modal Overlay -->
+    <div id="reviewModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px); z-index:99999; justify-content:center; align-items:center;">
+        <div style="background:linear-gradient(145deg, #1a1f2e, #12161f); border:1px solid rgba(209,159,104,0.25); border-radius:20px; padding:35px; max-width:480px; width:90%; box-shadow:0 25px 60px rgba(0,0,0,0.6); position:relative; animation:reviewModalIn 0.3s ease;">
+            <button onclick="closeReviewModal()" style="position:absolute; top:12px; right:16px; background:none; border:none; color:rgba(255,255,255,0.4); font-size:24px; cursor:pointer; line-height:1;">&times;</button>
+            <div style="text-align:center; margin-bottom:25px;">
+                <div style="width:60px; height:60px; background:linear-gradient(135deg, rgba(255,193,7,0.2), rgba(209,159,104,0.2)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+                    <i class="fas fa-star" style="font-size:24px; color:#ffc107;"></i>
+                </div>
+                <h3 style="color:#fff; font-family:'Oswald', sans-serif; font-size:20px; margin-bottom:5px;">Rate Your Experience</h3>
+                <p style="color:rgba(255,255,255,0.5); font-size:13px;">Provider: <strong id="reviewProviderName" style="color:var(--primary);"></strong></p>
+            </div>
+            <input type="hidden" id="reviewBookingId">
+            <input type="hidden" id="reviewProviderId">
+            <input type="hidden" id="reviewRatingValue" value="5">
+            <div id="reviewStars" style="display:flex; justify-content:center; gap:8px; margin-bottom:25px;">
+                <span class="review-star active" onclick="setReviewRating(1)" style="font-size:36px; cursor:pointer; transition:transform 0.15s, color 0.15s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">★</span>
+                <span class="review-star active" onclick="setReviewRating(2)" style="font-size:36px; cursor:pointer; transition:transform 0.15s, color 0.15s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">★</span>
+                <span class="review-star active" onclick="setReviewRating(3)" style="font-size:36px; cursor:pointer; transition:transform 0.15s, color 0.15s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">★</span>
+                <span class="review-star active" onclick="setReviewRating(4)" style="font-size:36px; cursor:pointer; transition:transform 0.15s, color 0.15s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">★</span>
+                <span class="review-star active" onclick="setReviewRating(5)" style="font-size:36px; cursor:pointer; transition:transform 0.15s, color 0.15s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">★</span>
+            </div>
+            <textarea id="reviewText" rows="4" placeholder="Share your experience... (optional)" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:14px; color:#fff; font-size:14px; resize:vertical; font-family:'Poppins', sans-serif; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(209,159,104,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+            <button id="submitReviewBtn" onclick="submitReview()" style="width:100%; margin-top:18px; background:linear-gradient(135deg, #d19f68, #b88652); color:#000; font-weight:bold; padding:14px; border:none; border-radius:25px; cursor:pointer; font-size:15px; letter-spacing:0.5px; box-shadow:0 4px 15px rgba(209,159,104,0.3); transition:all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 6px 20px rgba(209,159,104,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(209,159,104,0.3)'">
+                <i class="fas fa-paper-plane"></i> Submit Review
+            </button>
+        </div>
+    </div>
+    <style>
+        #reviewModal.active { display:flex !important; }
+        #reviewModal .review-star.active { color:#ffc107; }
+        #reviewModal .review-star:not(.active) { color:rgba(255,255,255,0.15); }
+        @keyframes reviewModalIn { from { opacity:0; transform:scale(0.9); } to { opacity:1; transform:scale(1); } }
+    </style>
+    <footer>
+        <!--? Footer Start-->
+        <div class="footer-area section-bg" data-background="assets/img/gallery/footer_bg.png">
+            <div class="container">
+                <div class="footer-top footer-padding">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="assets/img/logo/images.png" style="height: 110px; width: 250px;" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Receive updates and latest news direct from ServiceHub.</p>
+                                    </div>
+                                </div>
+                                <div class="footer-number">
+                                    <h4><span>+91 </span>8484848484</h4>
+                                    <p>servicehub84@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by ServiceHub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
+    <script src="./assets/js/gijgo.min.js"></script>
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/jquery.sticky.js"></script>
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <script>
+        // Force-kill preloader immediately (main.js window.load handler has already fired)
+        (function() {
+            if (typeof jQuery !== 'undefined') {
+                $('#preloader-active').fadeOut('fast');
+                $('body').css('overflow', 'visible');
+            } else {
+                var p = document.getElementById('preloader-active');
+                if (p) { p.style.display = 'none'; }
+                document.body.style.overflow = 'visible';
+            }
+        })();
+    </script>
+    <script src="/Project/assets/js/auth-interceptor.js"></script>
+    <script>
+        const _token = sessionStorage.getItem('auth_token') || '';
+        fetch('/Project/api/auth.php?action=check&role=user', {
+            headers: _token ? {'X-Auth-Token': _token} : {}
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.logged_in) {
+                    if (data.token) sessionStorage.setItem('auth_token', data.token);
+                    document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'block');
+                    if (data.user_name) {
+                        document.querySelectorAll('#profileName').forEach(el => el.textContent = data.user_name);
+                        document.querySelectorAll('#profileAvatar').forEach(el => el.textContent = data.user_name.charAt(0).toUpperCase());
+                    }
+                    if (data.user_email) {
+                        document.querySelectorAll('#profileEmail').forEach(el => el.textContent = data.user_email);
+                    }
+                } else {
+                    document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'block');
+                    document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'none');
+                }
+            });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.user-profile-wrapper')) {
+                document.querySelectorAll('#userDropdown').forEach(el => el.classList.remove('show-dropdown'));
+            }
+        });
+    </script>
+</body>
+</html>
+

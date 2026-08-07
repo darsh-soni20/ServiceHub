@@ -1,0 +1,884 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Contact Us | Barber HTML-5 Template</title>
+    <meta name="description" content="Modern Contact Us page with Google Maps and SaaS-style layout.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    
+    <style>
+        :root{
+            --contact-bg: #f6f8fc;
+            --contact-surface: rgba(255,255,255,.84);
+            --contact-border: rgba(255,255,255,.82);
+            --contact-text: #0f172a;
+            --contact-muted: #64748b;
+            --contact-primary: #6d28d9;
+            --contact-primary-2: #2563eb;
+            --contact-accent: #14b8a6;
+            --contact-shadow: 0 24px 80px rgba(15, 23, 42, .12);
+            --contact-radius: 24px;
+        }
+
+        body{
+            color: var(--contact-text);
+        }
+
+        .slider-area2.contact-hero{
+            background:
+                radial-gradient(circle at top left, rgba(228, 158, 18, 0.37), transparent 35%),
+                radial-gradient(circle at top right, rgba(228, 158, 18, 0.37), transparent 28%),
+                linear-gradient(135deg, #000000 0%, #000000 35%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-area2.contact-hero::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-cap2 h2{
+            color: #fff;
+            font-size: clamp(2.6rem, 6vw, 4.8rem);
+            font-weight: 800;
+            letter-spacing: -.04em;
+            margin-bottom: 16px;
+        }
+
+        .hero-contact-subtitle{
+            max-width: 760px;
+            margin: 0 auto 26px;
+            color: rgba(255,255,255,.78);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .contact-badges{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .contact-badges span{
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.12);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+            font-size: .95rem;
+        }
+
+        .contact-section{
+            background:
+                radial-gradient(circle at top, rgba(210, 153, 30, 0.10), transparent 26%),
+                linear-gradient(180deg, #ffffff 0%, var(--contact-bg) 100%);
+            padding: 90px 0 110px;
+        }
+
+        .contact-section .contact-title{
+            font-size: clamp(2rem, 3vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -.04em;
+            margin-bottom: 14px;
+        }
+
+        .contact-section .section-lead{
+            color: var(--contact-muted);
+            max-width: 720px;
+            line-height: 1.8;
+            margin-bottom: 36px;
+            font-size: 1.04rem;
+        }
+
+        .contact-grid{
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .contact-panel{
+            background: var(--contact-surface);
+            border: 1px solid var(--contact-border);
+            border-radius: var(--contact-radius);
+            box-shadow: var(--contact-shadow);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .contact-panel-inner{
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-info-grid{
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 22px;
+            align-items: stretch;
+        }
+
+        .info-card{
+            border-radius: 20px;
+            padding: 22px;
+            background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+            border: 1px solid rgba(148, 163, 184, .18);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, .05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card .icon-wrap{
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--contact-primary), var(--contact-primary-2));
+            box-shadow: 0 10px 24px rgba(37, 99, 235, .22);
+            font-size: 1.05rem;
+            flex: 0 0 auto;
+        }
+
+        .info-card h4{
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .info-card p{
+            color: var(--contact-muted);
+            margin-bottom: 0;
+            line-height: 1.7;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .info-card p .email-text{
+            display: block;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .form-shell{
+            padding: 28px;
+            border-radius: 22px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+            border: 1px solid rgba(148, 163, 184, .18);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .form-shell h3{
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            margin-bottom: 8px;
+        }
+
+        .form-shell .form-note{
+            color: var(--contact-muted);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .contact_form{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .contact_form .row{
+            flex: 1;
+        }
+
+        .contact_form .form-group{
+            margin-bottom: 18px;
+        }
+
+        .contact_form .form-control{
+            height: 58px;
+            border-radius: 16px;
+            border: 1px solid #dbe4f0;
+            background: #fff;
+            padding-left: 18px;
+            padding-right: 18px;
+            box-shadow: none;
+        }
+
+        .contact_form textarea.form-control{
+            min-height: 180px;
+            height: auto;
+            padding-top: 16px;
+            resize: vertical;
+        }
+
+        .contact_form .form-control:focus{
+            border-color: var(--contact-primary);
+            box-shadow: 0 0 0 4px rgba(109, 40, 217, .10);
+        }
+
+        .button.button-contactForm.boxed-btn{
+            border: none;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--contact-primary), var(--contact-primary-2));
+            padding: 16px 28px;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: .01em;
+            box-shadow: 0 16px 36px rgba(37, 99, 235, .26);
+            transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button.button-contactForm.boxed-btn:hover{
+            transform: translateY(-1px);
+            box-shadow: 0 18px 40px rgba(37, 99, 235, .30);
+        }
+
+        .map-card{
+            padding-bottom: 0;
+        }
+
+        .map-card .map-top{
+            padding: 24px 24px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .map-card .map-top h3{
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .map-card .map-top p{
+            color: var(--contact-muted);
+            margin-bottom: 0;
+        }
+
+        .map-badge{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(20, 184, 166, .12);
+            color: #0f766e;
+            font-weight: 700;
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+
+        .map-frame{
+            position: relative;
+            flex: 1;
+            min-height: 420px;
+            margin: 0 24px 24px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, .22);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+            background: #eaf0f7;
+        }
+
+        .map-frame iframe{
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(.08) contrast(1.02);
+        }
+
+        .map-frame .map-overlay{
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            z-index: 2;
+            background: rgba(33, 42, 15, 0.9);
+            color: #fff;
+            padding: 14px 16px;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(0,0,0,.18);
+            max-width: 280px;
+            backdrop-filter: blur(14px);
+        }
+
+        .map-frame .map-overlay strong{
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .map-frame .map-overlay span{
+            color: rgba(255,255,255,.76);
+            font-size: .94rem;
+            line-height: 1.6;
+        }
+
+        .trust-strip{
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .trust-item{
+            padding: 20px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid rgba(148, 163, 184, .18);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, .05);
+        }
+
+        .trust-item strong{
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .trust-item span{
+            color: var(--contact-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1199px){
+            .contact-grid{
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 991px){
+            .contact-info-grid{
+                grid-template-columns: 1fr;
+            }
+
+            .trust-strip{
+                grid-template-columns: 1fr;
+            }
+
+            .map-frame{
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 767px){
+            .contact-section{
+                padding: 70px 0 80px;
+            }
+
+            .contact-panel-inner{
+                padding: 18px;
+            }
+
+            .form-shell{
+                padding: 20px;
+            }
+
+            .map-card .map-top{
+                padding: 20px 20px 14px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .map-frame{
+                margin: 0 16px 16px;
+                min-height: 300px;
+            }
+
+            .map-frame .map-overlay{
+                left: 12px;
+                right: 12px;
+                bottom: 12px;
+                max-width: none;
+            }
+
+            .hero-cap2 h2{
+                font-size: clamp(2.2rem, 11vw, 3.6rem);
+            }
+        }
+        .header-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+            will-change: transform, opacity;
+        }
+
+        .header-area.header-hidden {
+            transform: translateY(-110%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body {
+            padding-top: 0;
+        }
+
+        .main-header.header-sticky {
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!--? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+    <header>
+        <!--? Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt="" style="height: 130px; width: 300px;"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="services.html">Services</a></li>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                            <li class="active"><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                                                <div class="header-right-btn f-right d-none d-lg-block ml-30 d-flex align-items-center">
+                                    <a href="/Project/login.php" class="btn header-btn auth-login">Login / Sign Up</a>
+                                    
+                                    <div class="user-profile-wrapper auth-user" style="display:none; position:relative; cursor:pointer; margin-left: 15px;">
+                                        <div class="user-profile-trigger d-flex align-items-center" onclick="document.getElementById('userDropdown').classList.toggle('show-dropdown')" style="gap: 12px; padding: 8px 18px 8px 8px; background: rgba(209,159,104,0.05); border: 1px solid rgba(209,159,104,0.2); border-radius: 40px; transition: all 0.3s;">
+                                            <div class="profile-avatar" style="width: 38px; height: 38px; background: #d19f68; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; font-size:18px;" id="profileAvatar">U</div>
+                                            <div class="profile-info text-left">
+                                                <span class="profile-name" id="profileName" style="display:block; color:#fff; font-size:14px; font-weight:600; line-height:1.2;">User</span>
+                                                <span class="profile-role" style="display:block; color:#d19f68; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Customer</span>
+                                            </div>
+                                            <i class="fas fa-chevron-down" style="color:#a5b1c2; font-size:12px; margin-left:5px;"></i>
+                                        </div>
+                                        
+                                        <div id="userDropdown" class="profile-dropdown-menu" style="position:absolute; top:calc(100% + 15px); right:0; width:240px; background:#121620; border:1px solid rgba(209,159,104,0.2); border-radius:12px; box-shadow:0 15px 35px rgba(0,0,0,0.6); padding:10px 0; opacity:0; visibility:hidden; transform:translateY(15px); transition:all 0.3s; z-index:999;">
+                                            <div class="dropdown-header" style="padding:15px 20px; border-bottom:1px solid rgba(255,255,255,0.05); margin-bottom:5px;">
+                                                <span style="display:block; color:rgba(255,255,255,0.4); font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Signed in as</span>
+                                                <span id="profileEmail" style="display:block; color:#fff; font-size:13px; word-break:break-all; font-weight:500;">user@email.com</span>
+                                            </div>
+                                            <a href="my-profile.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-user-circle" style="color:#d19f68; font-size:16px;"></i> My Profile</a>
+                                            <a href="my-bookings.html" class="dropdown-item" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#fff; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-calendar-check" style="color:#d19f68; font-size:16px;"></i> My Bookings</a>
+                                            <div style="height:1px; background:rgba(255,255,255,0.05); margin:5px 0;"></div>
+                                            <a href="#" class="dropdown-item text-danger" onclick="fetch('/Project/api/auth.php?action=logout&role=user').then(()=>window.location.href='index.html')" style="display:flex; align-items:center; gap:12px; padding:12px 20px; color:#ff4a4a; font-size:14px; text-decoration:none; transition:background 0.2s;"><i class="fas fa-sign-out-alt" style="font-size:16px;"></i> Log Out</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <style>
+                                        .show-dropdown { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; }
+                                        .dropdown-item:hover { background: rgba(209,159,104,0.1); color:#d19f68 !important; }
+                                        .dropdown-item.text-danger:hover { background: rgba(255,74,74,0.1); color:#ff4a4a !important; }
+                                        .user-profile-trigger:hover { background: rgba(209,159,104,0.15) !important; border-color:rgba(209,159,104,0.4) !important; }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <main>
+        <!-- Hero Start -->
+        <div class="slider-area2 contact-hero">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>Contact Us</h2>
+                                <div class="contact-badges">
+                                    <span><i class="ti-headphone-alt"></i> Fast reply in 24 hours</span>
+                                    <span><i class="ti-location-pin"></i> Remote + office support</span>
+                                    <span><i class="ti-email"></i> servicehub84@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <!-- Contact Area start -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="text-center">
+                            <h2 class="contact-title">Get in Touch</h2>
+                            <p class="section-lead mx-auto">
+                                Tell us what you need, and our team will reply with the next steps. Use the form for support, business inquiries, or a project discussion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-panel">
+                        <div class="contact-panel-inner">
+                            <div class="contact-info-grid">
+                                <div class="info-card">
+                                    <div class="icon-wrap"><i class="ti-location-pin"></i></div>
+                                    <h4>Our Office</h4>
+                                    <p>ServiceHub,<br>Hadala, Rajkot-Morbi Highway,<br>Rajkot</p>
+                                </div>
+                                <div class="info-card">
+                                    <div class="icon-wrap"><i class="ti-mobile"></i></div>
+                                    <h4>Call Us</h4>
+                                    <p>+91 84848 48484<br><br>Mon - Sun, 9:00 AM - 6:00 PM</p>
+                                </div>
+                                <div class="info-card">
+                                    <div class="icon-wrap"><i class="ti-email"></i></div>
+                                    <h4>Email</h4>
+                                    <p><span class="email-text">servicehub84@gmail.com</span><span class="email-text" style="margin-top:6px;">We usually reply within one business hour.</span></p>
+                                </div>
+                            </div>
+
+                            <div class="form-shell">
+                                <h3>Send us a message</h3>
+                                <p class="form-note">Share a few details and we’ll route your message to the right person.</p>
+
+                                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tell us about your project or question'" placeholder="Tell us about your project or question"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" placeholder="Your name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Work email address'" placeholder="Work email address">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" placeholder="Subject">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3 mb-0">
+                                        <button type="submit" class="button button-contactForm boxed-btn">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-panel map-card">
+                        <div class="map-top">
+                            <div>
+                                <h3>Find us on the map</h3>
+                                <p>Replace the embed URL with your exact Google Maps location.</p>
+                            </div>
+                            <div class="map-badge"><i class="ti-map-alt"></i> Google Maps</div>
+                        </div>
+
+                        <div class="map-frame">
+                            <iframe
+                                src="https://www.google.com/maps?q=Your%20Business%20Location&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Google Maps location">
+                            </iframe>
+                            <div class="map-overlay">
+                                <strong>Your Company HQ</strong>
+                                <span>Use this card to highlight your office, studio, or support center.</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-panel-inner pt-0">
+                            <div class="info-card" style="margin-bottom:0;">
+                                <div class="icon-wrap"><i class="ti-time"></i></div>
+                                <h4>Working hours</h4>
+                                <p>Monday to Saturday — 9:00 AM to 6:00 PM<br>Sunday — 10:00 AM to 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Area End -->
+    </main>
+
+    <footer>
+        <!--? Footer Start-->
+        <div class="footer-area section-bg" data-background="assets/img/gallery/footer_bg.png">
+            <div class="container">
+                <div class="footer-top footer-padding">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" style="height: 110px; width: 250px;" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Receive updates and latest news direct from Simply enter.</p>
+                                    </div>
+                                </div>
+                                <div class="footer-number">
+                                    <h4><span>+91</span>8484848484</h4>
+                                    <p>servicehub84@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Location </h4>
+                                    <ul>
+                                        <li><a href="#">Advanced</a></li>
+                                        <li><a href="#"> Management</a></li>
+                                        <li><a href="#">Corporate</a></li>
+                                        <li><a href="#">Customer</a></li>
+                                        <li><a href="#">Information</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Explore</h4>
+                                    <ul>
+                                        <li><a href="#">Cookies</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Proparties</a></li>
+                                        <li><a href="#">Licenses</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Location</h4>
+                                    <div class="footer-pera">
+                                        <p class="info1">Subscribe now to get daily updates</p>
+                                    </div>
+                                </div>
+                                <!-- Form -->
+                                <div class="footer-form">
+                                    <div id="mc_embed_signup">
+                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
+                                            <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'">
+                                            <div class="form-icon">
+                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">Send</button>
+                                            </div>
+                                            <div class="mt-10 info"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by <a target="_blank">ServiceHub </a></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    
+    <script>
+        (function () {
+            const header = document.querySelector('.header-area');
+            if (!header) return;
+
+            let lastScrollY = window.scrollY || 0;
+            const threshold = 20;
+            let ticking = false;
+
+            const updateHeader = () => {
+                const currentScrollY = window.scrollY || 0;
+
+                if (currentScrollY > threshold) {
+                    header.classList.add('header-hidden');
+                } else {
+                    header.classList.remove('header-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+                ticking = false;
+            };
+
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateHeader);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            window.addEventListener('load', updateHeader);
+        })();
+    </script>
+
+<!-- JS here -->
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+
+    <!-- Nice-select, sticky -->
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+    <!-- contact js -->
+    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/mail-script.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+<script src="/Project/assets/js/auth-interceptor.js"></script>
+<script>
+    fetch('/Project/api/auth.php?action=check&role=user')
+        .then(res => res.json())
+        .then(data => {
+            if (data.logged_in) {
+                document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'block');
+                
+                if(data.user_name) {
+                    document.querySelectorAll('#profileName').forEach(el => el.textContent = data.user_name);
+                    document.querySelectorAll('#profileAvatar').forEach(el => el.textContent = data.user_name.charAt(0).toUpperCase());
+                }
+                if(data.user_email) {
+                    document.querySelectorAll('#profileEmail').forEach(el => el.textContent = data.user_email);
+                }
+            } else {
+                document.querySelectorAll('.auth-login').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.auth-user').forEach(el => el.style.display = 'none');
+            }
+        });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile-wrapper')) {
+            document.querySelectorAll('#userDropdown').forEach(el => el.classList.remove('show-dropdown'));
+        }
+    });
+</script>
+</body>
+</html>
