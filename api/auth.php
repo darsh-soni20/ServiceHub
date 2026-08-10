@@ -26,7 +26,18 @@ function setRoleSession($role, $userId, $userName, $userEmail) {
     $_SESSION['sessions'][$role] = $sessionData;
     $_SESSION['tokens'][$token]  = $sessionData;
 
-    // Set role-scoped cookie for fallback (Removed for tab isolation)
+    // Save token to database for cross-session/iframe retrieval
+    try {
+        $db = getDB();
+        ensureAuthTokensTable($db);
+        $stmt = $db->prepare("INSERT INTO auth_tokens (token, user_id, role, user_name, user_email) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sisss", $token, $userId, $role, $userName, $userEmail);
+        $stmt->execute();
+        $stmt->close();
+        $db->close();
+    } catch (Throwable $e) {
+        // Silently fail - session still works for same-origin
+    }
 
     return $token;
 }
@@ -35,8 +46,19 @@ function setRoleSession($role, $userId, $userName, $userEmail) {
 if ($action === 'logout') {
     $role = isset($_GET['role']) ? $_GET['role'] : null;
     $token = $_SERVER['HTTP_X_AUTH_TOKEN'] ?? $_GET['token'] ?? null;
-    if ($token && isset($_SESSION['tokens'][$token])) {
-        unset($_SESSION['tokens'][$token]);
+    if ($token) {
+        if (isset($_SESSION['tokens'][$token])) unset($_SESSION['tokens'][$token]);
+        
+        // Remove from database too
+        try {
+            $db = getDB();
+            ensureAuthTokensTable($db);
+            $stmt = $db->prepare("DELETE FROM auth_tokens WHERE token = ?");
+            $stmt->bind_param("s", $token);
+            $stmt->execute();
+            $stmt->close();
+            $db->close();
+        } catch (Throwable $e) {}
     }
     if ($role) {
         if (isset($_SESSION['sessions'][$role])) {
